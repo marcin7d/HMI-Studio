@@ -1,0 +1,4989 @@
+{
+  "Languages": [
+    {
+      "Code": "pl-PL",
+      "Name": "Polski"
+    }
+  ],
+  "DefaultLanguage": "pl-PL",
+  "Translations": [],
+  "FavoriteColors": [],
+  "EquipmentTypes": [],
+  "Styles": [],
+  "EquipmentInstances": [],
+  "Security": {
+    "Enabled": false,
+    "AuditEnabled": false,
+    "IdleMinutes": 15,
+    "FailedAttempts": 5,
+    "LockoutSeconds": 300,
+    "Roles": [
+      {
+        "Id": "operator",
+        "Name": "Operator",
+        "Administrator": false,
+        "Permissions": [
+          "WriteTags",
+          "AcknowledgeAlarms",
+          "ViewRecipes",
+          "ApplyRecipes"
+        ]
+      },
+      {
+        "Id": "maintenance",
+        "Name": "Utrzymanie ruchu",
+        "Administrator": false,
+        "Permissions": [
+          "WriteTags",
+          "AcknowledgeAlarms",
+          "RunScripts",
+          "ViewAudit",
+          "ExportAudit",
+          "ViewRecipes",
+          "EditRecipes",
+          "ApplyRecipes"
+        ]
+      },
+      {
+        "Id": "administrator",
+        "Name": "Administrator",
+        "Administrator": true,
+        "Permissions": []
+      }
+    ],
+    "Accounts": []
+  },
+  "Recipes": [],
+  "Historian": {
+    "Enabled": true,
+    "Host": "localhost",
+    "Port": 5432,
+    "Database": "hmi_history",
+    "Username": "hmi_client",
+    "PasswordEnvironmentVariable": "HMI_HISTORY_PASSWORD",
+    "RequireTls": true,
+    "RetentionDays": 90,
+    "CompressAfterDays": 7,
+    "BufferMegabytes": 512
+  },
+  "Id": "8ab68446dd3a4f1eadb670dac894312b",
+  "Alarms": [],
+  "KeyboardMode": "Touch",
+  "Version": 4,
+  "Name": "Historia warto\u015Bci \u2014 TimescaleDB",
+  "Screens": [
+    {
+      "UseTemplate": false,
+      "TemplateId": "",
+      "TemplateAboveContent": true,
+      "Access": {
+        "RequireLogin": false,
+        "DenyAll": false,
+        "RoleIds": []
+      },
+      "Popup": {
+        "Enabled": false,
+        "Modal": false,
+        "Resizable": false,
+        "TemplateElementId": ""
+      },
+      "Id": "444f978e6246443eaa9ab91900a5a8ef",
+      "Name": "Trendy",
+      "Width": 1280,
+      "Height": 720,
+      "Background": "#EFF3F8",
+      "Elements": [
+        {
+          "PropertyBindings": [],
+          "StyleId": "",
+          "EquipmentInstanceId": "",
+          "StyleOverrides": [],
+          "Symbol": null,
+          "Line": null,
+          "Vector": {
+            "Nodes": [],
+            "Closed": false,
+            "FillEnabled": true,
+            "Join": "Round",
+            "EvenOddFill": true
+          },
+          "Arc": {
+            "CenterX": 0.5,
+            "CenterY": 0.5,
+            "RadiusX": 0.5,
+            "RadiusY": 0.5,
+            "StartAngle": 0,
+            "SweepAngle": 90,
+            "ThroughFraction": 0.5
+          },
+          "Path": {
+            "Width": 200,
+            "Height": 100,
+            "Parts": [],
+            "Closed": true
+          },
+          "FlipX": false,
+          "FlipY": false,
+          "Trend": {
+            "Pens": [],
+            "LeftAxis": {
+              "Title": "",
+              "AutoScale": true,
+              "Minimum": 0,
+              "Maximum": 100
+            },
+            "RightAxis": {
+              "Title": "",
+              "AutoScale": true,
+              "Minimum": 0,
+              "Maximum": 100
+            },
+            "WindowSeconds": 60,
+            "GapSeconds": 10,
+            "RefreshMilliseconds": 250,
+            "ShowGrid": true,
+            "ShowLegend": true,
+            "ShowToolbar": true,
+            "ShowCursor": true,
+            "GridColor": "#334F6378",
+            "CursorColor": "#E9A535",
+            "TimeFormat": "HH:mm:ss"
+          },
+          "AlarmList": {
+            "ShowActiveUnacknowledged": true,
+            "ShowActiveAcknowledged": true,
+            "ShowReturnedUnacknowledged": true,
+            "MaximumPriority": "Information",
+            "Search": "",
+            "ShowHeader": true,
+            "ShowCounts": true,
+            "ShowToolbar": true,
+            "AllowAcknowledgement": true,
+            "ShowComment": false,
+            "PageSize": 20,
+            "RefreshMilliseconds": 1000,
+            "RowHeight": 34,
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss",
+            "EmptyText": "Brak alarm\u00F3w",
+            "ActiveUnacknowledgedColor": "#FDE6E7",
+            "ActiveAcknowledgedColor": "#E5F2E9",
+            "ReturnedColor": "#FFF0CC",
+            "UnknownColor": "#E4E8EE",
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Priority",
+                "Title": "Priorytet",
+                "Width": 115,
+                "Visible": true
+              },
+              {
+                "Kind": "State",
+                "Title": "Stan",
+                "Width": 225,
+                "Visible": true
+              },
+              {
+                "Kind": "Name",
+                "Title": "Alarm",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Message",
+                "Title": "Komunikat",
+                "Width": 260,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Tag",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Activated",
+                "Title": "Wyst\u0105pienie",
+                "Width": 160,
+                "Visible": true
+              },
+              {
+                "Kind": "Returned",
+                "Title": "Powr\u00F3t",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Acknowledged",
+                "Title": "Potwierdzenie",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Quality",
+                "Title": "Dane",
+                "Width": 90,
+                "Visible": true
+              }
+            ]
+          },
+          "Access": {
+            "RequireLogin": false,
+            "DenyAll": false,
+            "RoleIds": []
+          },
+          "ViewAccess": {
+            "RequireLogin": false,
+            "DenyAll": false,
+            "RoleIds": []
+          },
+          "HistoryBrowser": {
+            "RestrictTags": false,
+            "TagIds": [],
+            "AllowTagSelection": true,
+            "AllowTimeSelection": true,
+            "AllowQualitySelection": true,
+            "AllowExport": true,
+            "ShowHeader": true,
+            "ShowStatus": true,
+            "UseUtc": false,
+            "NewestFirst": true,
+            "WindowMinutes": 60,
+            "AutoRefreshSeconds": 0,
+            "PageSize": 100,
+            "RowHeight": 30,
+            "Quality": "All",
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss.fff",
+            "EmptyText": "Brak pr\u00F3bek w wybranym zakresie",
+            "BadColor": "#FDE6E7",
+            "UncertainColor": "#FFF0CC",
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Recorded",
+                "Title": "Czas zapisu",
+                "Width": 210,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Zmienna",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Value",
+                "Title": "Warto\u015B\u0107",
+                "Width": 200,
+                "Visible": true
+              },
+              {
+                "Kind": "Unit",
+                "Title": "Jednostka",
+                "Width": 85,
+                "Visible": true
+              },
+              {
+                "Kind": "Quality",
+                "Title": "Jako\u015B\u0107",
+                "Width": 170,
+                "Visible": true
+              },
+              {
+                "Kind": "DataType",
+                "Title": "Typ",
+                "Width": 90,
+                "Visible": true
+              },
+              {
+                "Kind": "Source",
+                "Title": "\u0179r\u00F3d\u0142o",
+                "Width": 180,
+                "Visible": false
+              },
+              {
+                "Kind": "SourceTime",
+                "Title": "Czas \u017Ar\u00F3d\u0142a",
+                "Width": 210,
+                "Visible": false
+              },
+              {
+                "Kind": "Received",
+                "Title": "Czas odbioru",
+                "Width": 210,
+                "Visible": false
+              },
+              {
+                "Kind": "SampleId",
+                "Title": "Id pr\u00F3bki",
+                "Width": 290,
+                "Visible": false
+              }
+            ]
+          },
+          "AuditLog": {
+            "PageSize": 50,
+            "WindowHours": 24,
+            "RefreshSeconds": 5,
+            "ShowHeader": true,
+            "ShowFilters": true,
+            "AllowExport": true,
+            "UseUtc": false,
+            "RowHeight": 32,
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss",
+            "Search": "",
+            "Operation": null,
+            "Outcome": null,
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "FailedColor": "#FDE6E7",
+            "UnknownColor": "#FFF0CC",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Time",
+                "Title": "Czas",
+                "Width": 165,
+                "Visible": true
+              },
+              {
+                "Kind": "Operator",
+                "Title": "Operator",
+                "Width": 135,
+                "Visible": true
+              },
+              {
+                "Kind": "Operation",
+                "Title": "Operacja",
+                "Width": 155,
+                "Visible": true
+              },
+              {
+                "Kind": "Target",
+                "Title": "Cel",
+                "Width": 150,
+                "Visible": true
+              },
+              {
+                "Kind": "Previous",
+                "Title": "Przed \u017C\u0105daniem",
+                "Width": 115,
+                "Visible": true
+              },
+              {
+                "Kind": "Requested",
+                "Title": "\u017B\u0105danie",
+                "Width": 110,
+                "Visible": true
+              },
+              {
+                "Kind": "Outcome",
+                "Title": "Wynik",
+                "Width": 145,
+                "Visible": true
+              },
+              {
+                "Kind": "Detail",
+                "Title": "Szczeg\u00F3\u0142y",
+                "Width": 300,
+                "Visible": false
+              },
+              {
+                "Kind": "Completed",
+                "Title": "Czas wyniku",
+                "Width": 165,
+                "Visible": false
+              },
+              {
+                "Kind": "Session",
+                "Title": "Sesja",
+                "Width": 280,
+                "Visible": false
+              }
+            ]
+          },
+          "RecipeBrowser": {
+            "DefinitionId": "",
+            "ShowDefinitionPicker": true,
+            "AllowEdit": true,
+            "AllowReadPlc": true,
+            "AllowApply": true,
+            "ShowHeader": true,
+            "PageSize": 50,
+            "RowHeight": 34,
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Name",
+                "Title": "Nastawa",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Tag",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Type",
+                "Title": "Typ",
+                "Width": 95,
+                "Visible": true
+              },
+              {
+                "Kind": "Unit",
+                "Title": "Jednostka",
+                "Width": 75,
+                "Visible": true
+              },
+              {
+                "Kind": "Minimum",
+                "Title": "Minimum",
+                "Width": 100,
+                "Visible": true
+              },
+              {
+                "Kind": "Maximum",
+                "Title": "Maksimum",
+                "Width": 100,
+                "Visible": true
+              },
+              {
+                "Kind": "Value",
+                "Title": "Warto\u015B\u0107 receptury",
+                "Width": 190,
+                "Visible": true
+              }
+            ]
+          },
+          "Pipe": {
+            "Points": [],
+            "Diameter": 20,
+            "WallThickness": 2,
+            "BendRadius": 24,
+            "Shading": true,
+            "HighlightColor": "#60FFFFFF",
+            "StartFlange": false,
+            "EndFlange": false,
+            "FlowMode": "Tag",
+            "FlowDirection": "FromSign",
+            "AnimateFlow": true,
+            "Speed": 45,
+            "Deadband": 0,
+            "SpeedFromValue": false,
+            "MarkerSpacing": 38
+          },
+          "SliderScale": {
+            "Visible": false,
+            "Side": "Far",
+            "MajorDivisions": 5,
+            "MinorDivisions": 5,
+            "ShowLabels": true,
+            "Decimals": 0,
+            "FontSize": 11,
+            "Thickness": 1,
+            "MajorLength": 8,
+            "MinorLength": 4,
+            "Color": "#E8F1FA"
+          },
+          "Gauge": {
+            "Style": "Dial",
+            "Stretch": "Uniform",
+            "CaptionFontSize": 12,
+            "Needle": "Triangle",
+            "Reverse": false,
+            "Logarithmic": false,
+            "StartAngle": 180,
+            "SweepAngle": 180,
+            "TrackThickness": 12,
+            "NeedleWidth": 3,
+            "NeedleLength": 0.85,
+            "NeedleColor": "#E8F1FA",
+            "ShowProgress": true,
+            "ShowCaption": true,
+            "ShowValue": true,
+            "ShowUnit": true,
+            "ShowFrame": false,
+            "ShowTicks": true,
+            "ShowLabels": true,
+            "MajorDivisions": 5,
+            "MinorDivisions": 5,
+            "ScaleDecimals": 0,
+            "ScaleFontSize": 10,
+            "ScaleColor": "#A8BACA",
+            "Origin": "Minimum",
+            "OriginValue": 0,
+            "ColorFromZones": false,
+            "Zones": [],
+            "ShowTarget": false,
+            "TargetTagId": "",
+            "TargetValue": 50,
+            "TargetTolerance": 0,
+            "TargetColor": "#FFCF63",
+            "PreviewValue": 55,
+            "ShowRangeWarning": true
+          },
+          "States": [],
+          "Animations": [],
+          "Entries": [],
+          "ImageId": "",
+          "ImageStretch": "Uniform",
+          "PreviewValue": 0,
+          "UnmappedText": "\u2014",
+          "Events": [],
+          "Id": "56b8fb392a8c4546b1be84a93d824bbe",
+          "Name": "Instrukcja",
+          "Comment": "",
+          "Kind": "Text",
+          "X": 24,
+          "Y": 12,
+          "Width": 1232,
+          "Height": 44,
+          "Text": "HISTORIA WARTO\u015ACI  \u00B7  TimescaleDB  \u00B7  Historia\u2026: wyb\u00F3r dat  \u00B7  F9: stan archiwum",
+          "TagId": "",
+          "VisibilityTagId": "",
+          "Background": "#1B2C3F",
+          "Foreground": "#243D53",
+          "Accent": "#30C7B5",
+          "FontSize": 20,
+          "Minimum": 0,
+          "Maximum": 100,
+          "BorderThickness": 0,
+          "Unit": "",
+          "Decimals": 1,
+          "CanWrite": false,
+          "MaxTextLength": 256,
+          "ButtonAction": "Toggle",
+          "WriteValue": 1,
+          "TargetScreenId": "",
+          "Rotation": 0,
+          "IsVisible": true,
+          "LayerId": "base",
+          "GroupId": "",
+          "ZIndex": 0,
+          "IsLocked": false,
+          "FontFamily": "Segoe UI",
+          "FontBold": false,
+          "FontItalic": false,
+          "TextAlignment": "Center",
+          "BackgroundOpacity": 0,
+          "BorderColor": "#58758F",
+          "OffColor": "#34424D",
+          "BadColor": "#BF8843",
+          "FillColor2": "#102030",
+          "FillStyle": "Solid",
+          "GradientAngle": 90,
+          "CornerRadius": 0,
+          "DashStyle": "Solid",
+          "LineCap": "Flat",
+          "LineDirection": "Horizontal",
+          "StartArrow": false,
+          "EndArrow": false,
+          "ArrowSize": 12,
+          "IndicatorShape": "Circle",
+          "NumericType": "Auto",
+          "NumericFormat": "Fixed",
+          "SliderDirection": "Up",
+          "SliderMode": "Fill",
+          "SliderInteractive": false,
+          "ShowThumb": false,
+          "SliderStep": 1,
+          "ThumbSize": 12,
+          "ThumbColor": "#E8F1FA"
+        },
+        {
+          "PropertyBindings": [],
+          "StyleId": "",
+          "EquipmentInstanceId": "",
+          "StyleOverrides": [],
+          "Symbol": null,
+          "Line": null,
+          "Vector": {
+            "Nodes": [],
+            "Closed": false,
+            "FillEnabled": true,
+            "Join": "Round",
+            "EvenOddFill": true
+          },
+          "Arc": {
+            "CenterX": 0.5,
+            "CenterY": 0.5,
+            "RadiusX": 0.5,
+            "RadiusY": 0.5,
+            "StartAngle": 0,
+            "SweepAngle": 90,
+            "ThroughFraction": 0.5
+          },
+          "Path": {
+            "Width": 200,
+            "Height": 100,
+            "Parts": [],
+            "Closed": true
+          },
+          "FlipX": false,
+          "FlipY": false,
+          "Trend": {
+            "Pens": [
+              {
+                "Id": "9d2999a74ee04d8e970f1420ace8b848",
+                "TagId": "temperature",
+                "Name": "Temperatura",
+                "Unit": "\u00B0C",
+                "Color": "#168E81",
+                "Thickness": 2,
+                "DashStyle": "Solid",
+                "Decimals": 1,
+                "Visible": true,
+                "Axis": "Left",
+                "Mode": "Linear"
+              },
+              {
+                "Id": "ece9632299fd4ad59b3e83c3b3c98a6f",
+                "TagId": "pressure",
+                "Name": "Ci\u015Bnienie",
+                "Unit": "bar",
+                "Color": "#2876D2",
+                "Thickness": 2,
+                "DashStyle": "Solid",
+                "Decimals": 2,
+                "Visible": true,
+                "Axis": "Right",
+                "Mode": "Linear"
+              },
+              {
+                "Id": "4d577768d62e46e6a3216d522aa882b2",
+                "TagId": "setpoint",
+                "Name": "Zadana",
+                "Unit": "\u00B0C",
+                "Color": "#BD7620",
+                "Thickness": 2,
+                "DashStyle": "Dash",
+                "Decimals": 1,
+                "Visible": true,
+                "Axis": "Left",
+                "Mode": "Step"
+              }
+            ],
+            "LeftAxis": {
+              "Title": "Temperatura [\u00B0C]",
+              "AutoScale": false,
+              "Minimum": 0,
+              "Maximum": 100
+            },
+            "RightAxis": {
+              "Title": "Ci\u015Bnienie [bar]",
+              "AutoScale": false,
+              "Minimum": 0,
+              "Maximum": 10
+            },
+            "WindowSeconds": 60,
+            "GapSeconds": 0,
+            "RefreshMilliseconds": 250,
+            "ShowGrid": true,
+            "ShowLegend": true,
+            "ShowToolbar": true,
+            "ShowCursor": true,
+            "GridColor": "#334F6378",
+            "CursorColor": "#E9A535",
+            "TimeFormat": "HH:mm:ss"
+          },
+          "AlarmList": {
+            "ShowActiveUnacknowledged": true,
+            "ShowActiveAcknowledged": true,
+            "ShowReturnedUnacknowledged": true,
+            "MaximumPriority": "Information",
+            "Search": "",
+            "ShowHeader": true,
+            "ShowCounts": true,
+            "ShowToolbar": true,
+            "AllowAcknowledgement": true,
+            "ShowComment": false,
+            "PageSize": 20,
+            "RefreshMilliseconds": 1000,
+            "RowHeight": 34,
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss",
+            "EmptyText": "Brak alarm\u00F3w",
+            "ActiveUnacknowledgedColor": "#FDE6E7",
+            "ActiveAcknowledgedColor": "#E5F2E9",
+            "ReturnedColor": "#FFF0CC",
+            "UnknownColor": "#E4E8EE",
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Priority",
+                "Title": "Priorytet",
+                "Width": 115,
+                "Visible": true
+              },
+              {
+                "Kind": "State",
+                "Title": "Stan",
+                "Width": 225,
+                "Visible": true
+              },
+              {
+                "Kind": "Name",
+                "Title": "Alarm",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Message",
+                "Title": "Komunikat",
+                "Width": 260,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Tag",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Activated",
+                "Title": "Wyst\u0105pienie",
+                "Width": 160,
+                "Visible": true
+              },
+              {
+                "Kind": "Returned",
+                "Title": "Powr\u00F3t",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Acknowledged",
+                "Title": "Potwierdzenie",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Quality",
+                "Title": "Dane",
+                "Width": 90,
+                "Visible": true
+              }
+            ]
+          },
+          "Access": {
+            "RequireLogin": false,
+            "DenyAll": false,
+            "RoleIds": []
+          },
+          "ViewAccess": {
+            "RequireLogin": false,
+            "DenyAll": false,
+            "RoleIds": []
+          },
+          "HistoryBrowser": {
+            "RestrictTags": false,
+            "TagIds": [],
+            "AllowTagSelection": true,
+            "AllowTimeSelection": true,
+            "AllowQualitySelection": true,
+            "AllowExport": true,
+            "ShowHeader": true,
+            "ShowStatus": true,
+            "UseUtc": false,
+            "NewestFirst": true,
+            "WindowMinutes": 60,
+            "AutoRefreshSeconds": 0,
+            "PageSize": 100,
+            "RowHeight": 30,
+            "Quality": "All",
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss.fff",
+            "EmptyText": "Brak pr\u00F3bek w wybranym zakresie",
+            "BadColor": "#FDE6E7",
+            "UncertainColor": "#FFF0CC",
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Recorded",
+                "Title": "Czas zapisu",
+                "Width": 210,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Zmienna",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Value",
+                "Title": "Warto\u015B\u0107",
+                "Width": 200,
+                "Visible": true
+              },
+              {
+                "Kind": "Unit",
+                "Title": "Jednostka",
+                "Width": 85,
+                "Visible": true
+              },
+              {
+                "Kind": "Quality",
+                "Title": "Jako\u015B\u0107",
+                "Width": 170,
+                "Visible": true
+              },
+              {
+                "Kind": "DataType",
+                "Title": "Typ",
+                "Width": 90,
+                "Visible": true
+              },
+              {
+                "Kind": "Source",
+                "Title": "\u0179r\u00F3d\u0142o",
+                "Width": 180,
+                "Visible": false
+              },
+              {
+                "Kind": "SourceTime",
+                "Title": "Czas \u017Ar\u00F3d\u0142a",
+                "Width": 210,
+                "Visible": false
+              },
+              {
+                "Kind": "Received",
+                "Title": "Czas odbioru",
+                "Width": 210,
+                "Visible": false
+              },
+              {
+                "Kind": "SampleId",
+                "Title": "Id pr\u00F3bki",
+                "Width": 290,
+                "Visible": false
+              }
+            ]
+          },
+          "AuditLog": {
+            "PageSize": 50,
+            "WindowHours": 24,
+            "RefreshSeconds": 5,
+            "ShowHeader": true,
+            "ShowFilters": true,
+            "AllowExport": true,
+            "UseUtc": false,
+            "RowHeight": 32,
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss",
+            "Search": "",
+            "Operation": null,
+            "Outcome": null,
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "FailedColor": "#FDE6E7",
+            "UnknownColor": "#FFF0CC",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Time",
+                "Title": "Czas",
+                "Width": 165,
+                "Visible": true
+              },
+              {
+                "Kind": "Operator",
+                "Title": "Operator",
+                "Width": 135,
+                "Visible": true
+              },
+              {
+                "Kind": "Operation",
+                "Title": "Operacja",
+                "Width": 155,
+                "Visible": true
+              },
+              {
+                "Kind": "Target",
+                "Title": "Cel",
+                "Width": 150,
+                "Visible": true
+              },
+              {
+                "Kind": "Previous",
+                "Title": "Przed \u017C\u0105daniem",
+                "Width": 115,
+                "Visible": true
+              },
+              {
+                "Kind": "Requested",
+                "Title": "\u017B\u0105danie",
+                "Width": 110,
+                "Visible": true
+              },
+              {
+                "Kind": "Outcome",
+                "Title": "Wynik",
+                "Width": 145,
+                "Visible": true
+              },
+              {
+                "Kind": "Detail",
+                "Title": "Szczeg\u00F3\u0142y",
+                "Width": 300,
+                "Visible": false
+              },
+              {
+                "Kind": "Completed",
+                "Title": "Czas wyniku",
+                "Width": 165,
+                "Visible": false
+              },
+              {
+                "Kind": "Session",
+                "Title": "Sesja",
+                "Width": 280,
+                "Visible": false
+              }
+            ]
+          },
+          "RecipeBrowser": {
+            "DefinitionId": "",
+            "ShowDefinitionPicker": true,
+            "AllowEdit": true,
+            "AllowReadPlc": true,
+            "AllowApply": true,
+            "ShowHeader": true,
+            "PageSize": 50,
+            "RowHeight": 34,
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Name",
+                "Title": "Nastawa",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Tag",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Type",
+                "Title": "Typ",
+                "Width": 95,
+                "Visible": true
+              },
+              {
+                "Kind": "Unit",
+                "Title": "Jednostka",
+                "Width": 75,
+                "Visible": true
+              },
+              {
+                "Kind": "Minimum",
+                "Title": "Minimum",
+                "Width": 100,
+                "Visible": true
+              },
+              {
+                "Kind": "Maximum",
+                "Title": "Maksimum",
+                "Width": 100,
+                "Visible": true
+              },
+              {
+                "Kind": "Value",
+                "Title": "Warto\u015B\u0107 receptury",
+                "Width": 190,
+                "Visible": true
+              }
+            ]
+          },
+          "Pipe": {
+            "Points": [],
+            "Diameter": 20,
+            "WallThickness": 2,
+            "BendRadius": 24,
+            "Shading": true,
+            "HighlightColor": "#60FFFFFF",
+            "StartFlange": false,
+            "EndFlange": false,
+            "FlowMode": "Tag",
+            "FlowDirection": "FromSign",
+            "AnimateFlow": true,
+            "Speed": 45,
+            "Deadband": 0,
+            "SpeedFromValue": false,
+            "MarkerSpacing": 38
+          },
+          "SliderScale": {
+            "Visible": false,
+            "Side": "Far",
+            "MajorDivisions": 5,
+            "MinorDivisions": 5,
+            "ShowLabels": true,
+            "Decimals": 0,
+            "FontSize": 11,
+            "Thickness": 1,
+            "MajorLength": 8,
+            "MinorLength": 4,
+            "Color": "#E8F1FA"
+          },
+          "Gauge": {
+            "Style": "Dial",
+            "Stretch": "Uniform",
+            "CaptionFontSize": 12,
+            "Needle": "Triangle",
+            "Reverse": false,
+            "Logarithmic": false,
+            "StartAngle": 180,
+            "SweepAngle": 180,
+            "TrackThickness": 12,
+            "NeedleWidth": 3,
+            "NeedleLength": 0.85,
+            "NeedleColor": "#E8F1FA",
+            "ShowProgress": true,
+            "ShowCaption": true,
+            "ShowValue": true,
+            "ShowUnit": true,
+            "ShowFrame": false,
+            "ShowTicks": true,
+            "ShowLabels": true,
+            "MajorDivisions": 5,
+            "MinorDivisions": 5,
+            "ScaleDecimals": 0,
+            "ScaleFontSize": 10,
+            "ScaleColor": "#A8BACA",
+            "Origin": "Minimum",
+            "OriginValue": 0,
+            "ColorFromZones": false,
+            "Zones": [],
+            "ShowTarget": false,
+            "TargetTagId": "",
+            "TargetValue": 50,
+            "TargetTolerance": 0,
+            "TargetColor": "#FFCF63",
+            "PreviewValue": 55,
+            "ShowRangeWarning": true
+          },
+          "States": [],
+          "Animations": [],
+          "Entries": [],
+          "ImageId": "",
+          "ImageStretch": "Uniform",
+          "PreviewValue": 0,
+          "UnmappedText": "\u2014",
+          "Events": [],
+          "Id": "22df8c4481f24420957bd5d275be4e87",
+          "Name": "Trend procesu",
+          "Comment": "",
+          "Kind": "Trend",
+          "X": 24,
+          "Y": 72,
+          "Width": 1232,
+          "Height": 510,
+          "Text": "Temperatura i ci\u015Bnienie",
+          "TagId": "",
+          "VisibilityTagId": "",
+          "Background": "#FFFFFF",
+          "Foreground": "#213D53",
+          "Accent": "#30C7B5",
+          "FontSize": 12,
+          "Minimum": 0,
+          "Maximum": 100,
+          "BorderThickness": 1,
+          "Unit": "",
+          "Decimals": 1,
+          "CanWrite": false,
+          "MaxTextLength": 256,
+          "ButtonAction": "Toggle",
+          "WriteValue": 1,
+          "TargetScreenId": "",
+          "Rotation": 0,
+          "IsVisible": true,
+          "LayerId": "base",
+          "GroupId": "",
+          "ZIndex": 0,
+          "IsLocked": false,
+          "FontFamily": "Segoe UI",
+          "FontBold": false,
+          "FontItalic": false,
+          "TextAlignment": "Center",
+          "BackgroundOpacity": 1,
+          "BorderColor": "#C4D1DC",
+          "OffColor": "#34424D",
+          "BadColor": "#BF8843",
+          "FillColor2": "#102030",
+          "FillStyle": "Solid",
+          "GradientAngle": 90,
+          "CornerRadius": 6,
+          "DashStyle": "Solid",
+          "LineCap": "Flat",
+          "LineDirection": "Horizontal",
+          "StartArrow": false,
+          "EndArrow": false,
+          "ArrowSize": 12,
+          "IndicatorShape": "Circle",
+          "NumericType": "Auto",
+          "NumericFormat": "Fixed",
+          "SliderDirection": "Up",
+          "SliderMode": "Fill",
+          "SliderInteractive": false,
+          "ShowThumb": false,
+          "SliderStep": 1,
+          "ThumbSize": 12,
+          "ThumbColor": "#E8F1FA"
+        },
+        {
+          "PropertyBindings": [],
+          "StyleId": "",
+          "EquipmentInstanceId": "",
+          "StyleOverrides": [],
+          "Symbol": null,
+          "Line": null,
+          "Vector": {
+            "Nodes": [],
+            "Closed": false,
+            "FillEnabled": true,
+            "Join": "Round",
+            "EvenOddFill": true
+          },
+          "Arc": {
+            "CenterX": 0.5,
+            "CenterY": 0.5,
+            "RadiusX": 0.5,
+            "RadiusY": 0.5,
+            "StartAngle": 0,
+            "SweepAngle": 90,
+            "ThroughFraction": 0.5
+          },
+          "Path": {
+            "Width": 200,
+            "Height": 100,
+            "Parts": [],
+            "Closed": true
+          },
+          "FlipX": false,
+          "FlipY": false,
+          "Trend": {
+            "Pens": [],
+            "LeftAxis": {
+              "Title": "",
+              "AutoScale": true,
+              "Minimum": 0,
+              "Maximum": 100
+            },
+            "RightAxis": {
+              "Title": "",
+              "AutoScale": true,
+              "Minimum": 0,
+              "Maximum": 100
+            },
+            "WindowSeconds": 60,
+            "GapSeconds": 10,
+            "RefreshMilliseconds": 250,
+            "ShowGrid": true,
+            "ShowLegend": true,
+            "ShowToolbar": true,
+            "ShowCursor": true,
+            "GridColor": "#334F6378",
+            "CursorColor": "#E9A535",
+            "TimeFormat": "HH:mm:ss"
+          },
+          "AlarmList": {
+            "ShowActiveUnacknowledged": true,
+            "ShowActiveAcknowledged": true,
+            "ShowReturnedUnacknowledged": true,
+            "MaximumPriority": "Information",
+            "Search": "",
+            "ShowHeader": true,
+            "ShowCounts": true,
+            "ShowToolbar": true,
+            "AllowAcknowledgement": true,
+            "ShowComment": false,
+            "PageSize": 20,
+            "RefreshMilliseconds": 1000,
+            "RowHeight": 34,
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss",
+            "EmptyText": "Brak alarm\u00F3w",
+            "ActiveUnacknowledgedColor": "#FDE6E7",
+            "ActiveAcknowledgedColor": "#E5F2E9",
+            "ReturnedColor": "#FFF0CC",
+            "UnknownColor": "#E4E8EE",
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Priority",
+                "Title": "Priorytet",
+                "Width": 115,
+                "Visible": true
+              },
+              {
+                "Kind": "State",
+                "Title": "Stan",
+                "Width": 225,
+                "Visible": true
+              },
+              {
+                "Kind": "Name",
+                "Title": "Alarm",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Message",
+                "Title": "Komunikat",
+                "Width": 260,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Tag",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Activated",
+                "Title": "Wyst\u0105pienie",
+                "Width": 160,
+                "Visible": true
+              },
+              {
+                "Kind": "Returned",
+                "Title": "Powr\u00F3t",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Acknowledged",
+                "Title": "Potwierdzenie",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Quality",
+                "Title": "Dane",
+                "Width": 90,
+                "Visible": true
+              }
+            ]
+          },
+          "Access": {
+            "RequireLogin": false,
+            "DenyAll": false,
+            "RoleIds": []
+          },
+          "ViewAccess": {
+            "RequireLogin": false,
+            "DenyAll": false,
+            "RoleIds": []
+          },
+          "HistoryBrowser": {
+            "RestrictTags": false,
+            "TagIds": [],
+            "AllowTagSelection": true,
+            "AllowTimeSelection": true,
+            "AllowQualitySelection": true,
+            "AllowExport": true,
+            "ShowHeader": true,
+            "ShowStatus": true,
+            "UseUtc": false,
+            "NewestFirst": true,
+            "WindowMinutes": 60,
+            "AutoRefreshSeconds": 0,
+            "PageSize": 100,
+            "RowHeight": 30,
+            "Quality": "All",
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss.fff",
+            "EmptyText": "Brak pr\u00F3bek w wybranym zakresie",
+            "BadColor": "#FDE6E7",
+            "UncertainColor": "#FFF0CC",
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Recorded",
+                "Title": "Czas zapisu",
+                "Width": 210,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Zmienna",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Value",
+                "Title": "Warto\u015B\u0107",
+                "Width": 200,
+                "Visible": true
+              },
+              {
+                "Kind": "Unit",
+                "Title": "Jednostka",
+                "Width": 85,
+                "Visible": true
+              },
+              {
+                "Kind": "Quality",
+                "Title": "Jako\u015B\u0107",
+                "Width": 170,
+                "Visible": true
+              },
+              {
+                "Kind": "DataType",
+                "Title": "Typ",
+                "Width": 90,
+                "Visible": true
+              },
+              {
+                "Kind": "Source",
+                "Title": "\u0179r\u00F3d\u0142o",
+                "Width": 180,
+                "Visible": false
+              },
+              {
+                "Kind": "SourceTime",
+                "Title": "Czas \u017Ar\u00F3d\u0142a",
+                "Width": 210,
+                "Visible": false
+              },
+              {
+                "Kind": "Received",
+                "Title": "Czas odbioru",
+                "Width": 210,
+                "Visible": false
+              },
+              {
+                "Kind": "SampleId",
+                "Title": "Id pr\u00F3bki",
+                "Width": 290,
+                "Visible": false
+              }
+            ]
+          },
+          "AuditLog": {
+            "PageSize": 50,
+            "WindowHours": 24,
+            "RefreshSeconds": 5,
+            "ShowHeader": true,
+            "ShowFilters": true,
+            "AllowExport": true,
+            "UseUtc": false,
+            "RowHeight": 32,
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss",
+            "Search": "",
+            "Operation": null,
+            "Outcome": null,
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "FailedColor": "#FDE6E7",
+            "UnknownColor": "#FFF0CC",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Time",
+                "Title": "Czas",
+                "Width": 165,
+                "Visible": true
+              },
+              {
+                "Kind": "Operator",
+                "Title": "Operator",
+                "Width": 135,
+                "Visible": true
+              },
+              {
+                "Kind": "Operation",
+                "Title": "Operacja",
+                "Width": 155,
+                "Visible": true
+              },
+              {
+                "Kind": "Target",
+                "Title": "Cel",
+                "Width": 150,
+                "Visible": true
+              },
+              {
+                "Kind": "Previous",
+                "Title": "Przed \u017C\u0105daniem",
+                "Width": 115,
+                "Visible": true
+              },
+              {
+                "Kind": "Requested",
+                "Title": "\u017B\u0105danie",
+                "Width": 110,
+                "Visible": true
+              },
+              {
+                "Kind": "Outcome",
+                "Title": "Wynik",
+                "Width": 145,
+                "Visible": true
+              },
+              {
+                "Kind": "Detail",
+                "Title": "Szczeg\u00F3\u0142y",
+                "Width": 300,
+                "Visible": false
+              },
+              {
+                "Kind": "Completed",
+                "Title": "Czas wyniku",
+                "Width": 165,
+                "Visible": false
+              },
+              {
+                "Kind": "Session",
+                "Title": "Sesja",
+                "Width": 280,
+                "Visible": false
+              }
+            ]
+          },
+          "RecipeBrowser": {
+            "DefinitionId": "",
+            "ShowDefinitionPicker": true,
+            "AllowEdit": true,
+            "AllowReadPlc": true,
+            "AllowApply": true,
+            "ShowHeader": true,
+            "PageSize": 50,
+            "RowHeight": 34,
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Name",
+                "Title": "Nastawa",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Tag",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Type",
+                "Title": "Typ",
+                "Width": 95,
+                "Visible": true
+              },
+              {
+                "Kind": "Unit",
+                "Title": "Jednostka",
+                "Width": 75,
+                "Visible": true
+              },
+              {
+                "Kind": "Minimum",
+                "Title": "Minimum",
+                "Width": 100,
+                "Visible": true
+              },
+              {
+                "Kind": "Maximum",
+                "Title": "Maksimum",
+                "Width": 100,
+                "Visible": true
+              },
+              {
+                "Kind": "Value",
+                "Title": "Warto\u015B\u0107 receptury",
+                "Width": 190,
+                "Visible": true
+              }
+            ]
+          },
+          "Pipe": {
+            "Points": [],
+            "Diameter": 20,
+            "WallThickness": 2,
+            "BendRadius": 24,
+            "Shading": true,
+            "HighlightColor": "#60FFFFFF",
+            "StartFlange": false,
+            "EndFlange": false,
+            "FlowMode": "Tag",
+            "FlowDirection": "FromSign",
+            "AnimateFlow": true,
+            "Speed": 45,
+            "Deadband": 0,
+            "SpeedFromValue": false,
+            "MarkerSpacing": 38
+          },
+          "SliderScale": {
+            "Visible": false,
+            "Side": "Far",
+            "MajorDivisions": 5,
+            "MinorDivisions": 5,
+            "ShowLabels": true,
+            "Decimals": 0,
+            "FontSize": 11,
+            "Thickness": 1,
+            "MajorLength": 8,
+            "MinorLength": 4,
+            "Color": "#E8F1FA"
+          },
+          "Gauge": {
+            "Style": "Dial",
+            "Stretch": "Uniform",
+            "CaptionFontSize": 12,
+            "Needle": "Triangle",
+            "Reverse": false,
+            "Logarithmic": false,
+            "StartAngle": 180,
+            "SweepAngle": 180,
+            "TrackThickness": 12,
+            "NeedleWidth": 3,
+            "NeedleLength": 0.85,
+            "NeedleColor": "#E8F1FA",
+            "ShowProgress": true,
+            "ShowCaption": true,
+            "ShowValue": true,
+            "ShowUnit": true,
+            "ShowFrame": false,
+            "ShowTicks": true,
+            "ShowLabels": true,
+            "MajorDivisions": 5,
+            "MinorDivisions": 5,
+            "ScaleDecimals": 0,
+            "ScaleFontSize": 10,
+            "ScaleColor": "#A8BACA",
+            "Origin": "Minimum",
+            "OriginValue": 0,
+            "ColorFromZones": false,
+            "Zones": [],
+            "ShowTarget": false,
+            "TargetTagId": "",
+            "TargetValue": 50,
+            "TargetTolerance": 0,
+            "TargetColor": "#FFCF63",
+            "PreviewValue": 55,
+            "ShowRangeWarning": true
+          },
+          "States": [],
+          "Animations": [],
+          "Entries": [],
+          "ImageId": "",
+          "ImageStretch": "Uniform",
+          "PreviewValue": 0,
+          "UnmappedText": "\u2014",
+          "Events": [],
+          "Id": "525af457921643ed89bb92f59572811d",
+          "Name": "Zadana",
+          "Comment": "",
+          "Kind": "NumericInput",
+          "X": 24,
+          "Y": 610,
+          "Width": 200,
+          "Height": 56,
+          "Text": "Obiekt",
+          "TagId": "setpoint",
+          "VisibilityTagId": "",
+          "Background": "#FFFFFF",
+          "Foreground": "#243D53",
+          "Accent": "#30C7B5",
+          "FontSize": 18,
+          "Minimum": 0,
+          "Maximum": 100,
+          "BorderThickness": 1,
+          "Unit": "\u00B0C",
+          "Decimals": 1,
+          "CanWrite": true,
+          "MaxTextLength": 256,
+          "ButtonAction": "Toggle",
+          "WriteValue": 1,
+          "TargetScreenId": "",
+          "Rotation": 0,
+          "IsVisible": true,
+          "LayerId": "base",
+          "GroupId": "",
+          "ZIndex": 0,
+          "IsLocked": false,
+          "FontFamily": "Segoe UI",
+          "FontBold": false,
+          "FontItalic": false,
+          "TextAlignment": "Center",
+          "BackgroundOpacity": 1,
+          "BorderColor": "#58758F",
+          "OffColor": "#34424D",
+          "BadColor": "#BF8843",
+          "FillColor2": "#102030",
+          "FillStyle": "Solid",
+          "GradientAngle": 90,
+          "CornerRadius": 0,
+          "DashStyle": "Solid",
+          "LineCap": "Flat",
+          "LineDirection": "Horizontal",
+          "StartArrow": false,
+          "EndArrow": false,
+          "ArrowSize": 12,
+          "IndicatorShape": "Circle",
+          "NumericType": "Auto",
+          "NumericFormat": "Fixed",
+          "SliderDirection": "Up",
+          "SliderMode": "Fill",
+          "SliderInteractive": false,
+          "ShowThumb": false,
+          "SliderStep": 1,
+          "ThumbSize": 12,
+          "ThumbColor": "#E8F1FA"
+        },
+        {
+          "PropertyBindings": [],
+          "StyleId": "",
+          "EquipmentInstanceId": "",
+          "StyleOverrides": [],
+          "Symbol": null,
+          "Line": null,
+          "Vector": {
+            "Nodes": [],
+            "Closed": false,
+            "FillEnabled": true,
+            "Join": "Round",
+            "EvenOddFill": true
+          },
+          "Arc": {
+            "CenterX": 0.5,
+            "CenterY": 0.5,
+            "RadiusX": 0.5,
+            "RadiusY": 0.5,
+            "StartAngle": 0,
+            "SweepAngle": 90,
+            "ThroughFraction": 0.5
+          },
+          "Path": {
+            "Width": 200,
+            "Height": 100,
+            "Parts": [],
+            "Closed": true
+          },
+          "FlipX": false,
+          "FlipY": false,
+          "Trend": {
+            "Pens": [],
+            "LeftAxis": {
+              "Title": "",
+              "AutoScale": true,
+              "Minimum": 0,
+              "Maximum": 100
+            },
+            "RightAxis": {
+              "Title": "",
+              "AutoScale": true,
+              "Minimum": 0,
+              "Maximum": 100
+            },
+            "WindowSeconds": 60,
+            "GapSeconds": 10,
+            "RefreshMilliseconds": 250,
+            "ShowGrid": true,
+            "ShowLegend": true,
+            "ShowToolbar": true,
+            "ShowCursor": true,
+            "GridColor": "#334F6378",
+            "CursorColor": "#E9A535",
+            "TimeFormat": "HH:mm:ss"
+          },
+          "AlarmList": {
+            "ShowActiveUnacknowledged": true,
+            "ShowActiveAcknowledged": true,
+            "ShowReturnedUnacknowledged": true,
+            "MaximumPriority": "Information",
+            "Search": "",
+            "ShowHeader": true,
+            "ShowCounts": true,
+            "ShowToolbar": true,
+            "AllowAcknowledgement": true,
+            "ShowComment": false,
+            "PageSize": 20,
+            "RefreshMilliseconds": 1000,
+            "RowHeight": 34,
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss",
+            "EmptyText": "Brak alarm\u00F3w",
+            "ActiveUnacknowledgedColor": "#FDE6E7",
+            "ActiveAcknowledgedColor": "#E5F2E9",
+            "ReturnedColor": "#FFF0CC",
+            "UnknownColor": "#E4E8EE",
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Priority",
+                "Title": "Priorytet",
+                "Width": 115,
+                "Visible": true
+              },
+              {
+                "Kind": "State",
+                "Title": "Stan",
+                "Width": 225,
+                "Visible": true
+              },
+              {
+                "Kind": "Name",
+                "Title": "Alarm",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Message",
+                "Title": "Komunikat",
+                "Width": 260,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Tag",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Activated",
+                "Title": "Wyst\u0105pienie",
+                "Width": 160,
+                "Visible": true
+              },
+              {
+                "Kind": "Returned",
+                "Title": "Powr\u00F3t",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Acknowledged",
+                "Title": "Potwierdzenie",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Quality",
+                "Title": "Dane",
+                "Width": 90,
+                "Visible": true
+              }
+            ]
+          },
+          "Access": {
+            "RequireLogin": false,
+            "DenyAll": false,
+            "RoleIds": []
+          },
+          "ViewAccess": {
+            "RequireLogin": false,
+            "DenyAll": false,
+            "RoleIds": []
+          },
+          "HistoryBrowser": {
+            "RestrictTags": false,
+            "TagIds": [],
+            "AllowTagSelection": true,
+            "AllowTimeSelection": true,
+            "AllowQualitySelection": true,
+            "AllowExport": true,
+            "ShowHeader": true,
+            "ShowStatus": true,
+            "UseUtc": false,
+            "NewestFirst": true,
+            "WindowMinutes": 60,
+            "AutoRefreshSeconds": 0,
+            "PageSize": 100,
+            "RowHeight": 30,
+            "Quality": "All",
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss.fff",
+            "EmptyText": "Brak pr\u00F3bek w wybranym zakresie",
+            "BadColor": "#FDE6E7",
+            "UncertainColor": "#FFF0CC",
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Recorded",
+                "Title": "Czas zapisu",
+                "Width": 210,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Zmienna",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Value",
+                "Title": "Warto\u015B\u0107",
+                "Width": 200,
+                "Visible": true
+              },
+              {
+                "Kind": "Unit",
+                "Title": "Jednostka",
+                "Width": 85,
+                "Visible": true
+              },
+              {
+                "Kind": "Quality",
+                "Title": "Jako\u015B\u0107",
+                "Width": 170,
+                "Visible": true
+              },
+              {
+                "Kind": "DataType",
+                "Title": "Typ",
+                "Width": 90,
+                "Visible": true
+              },
+              {
+                "Kind": "Source",
+                "Title": "\u0179r\u00F3d\u0142o",
+                "Width": 180,
+                "Visible": false
+              },
+              {
+                "Kind": "SourceTime",
+                "Title": "Czas \u017Ar\u00F3d\u0142a",
+                "Width": 210,
+                "Visible": false
+              },
+              {
+                "Kind": "Received",
+                "Title": "Czas odbioru",
+                "Width": 210,
+                "Visible": false
+              },
+              {
+                "Kind": "SampleId",
+                "Title": "Id pr\u00F3bki",
+                "Width": 290,
+                "Visible": false
+              }
+            ]
+          },
+          "AuditLog": {
+            "PageSize": 50,
+            "WindowHours": 24,
+            "RefreshSeconds": 5,
+            "ShowHeader": true,
+            "ShowFilters": true,
+            "AllowExport": true,
+            "UseUtc": false,
+            "RowHeight": 32,
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss",
+            "Search": "",
+            "Operation": null,
+            "Outcome": null,
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "FailedColor": "#FDE6E7",
+            "UnknownColor": "#FFF0CC",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Time",
+                "Title": "Czas",
+                "Width": 165,
+                "Visible": true
+              },
+              {
+                "Kind": "Operator",
+                "Title": "Operator",
+                "Width": 135,
+                "Visible": true
+              },
+              {
+                "Kind": "Operation",
+                "Title": "Operacja",
+                "Width": 155,
+                "Visible": true
+              },
+              {
+                "Kind": "Target",
+                "Title": "Cel",
+                "Width": 150,
+                "Visible": true
+              },
+              {
+                "Kind": "Previous",
+                "Title": "Przed \u017C\u0105daniem",
+                "Width": 115,
+                "Visible": true
+              },
+              {
+                "Kind": "Requested",
+                "Title": "\u017B\u0105danie",
+                "Width": 110,
+                "Visible": true
+              },
+              {
+                "Kind": "Outcome",
+                "Title": "Wynik",
+                "Width": 145,
+                "Visible": true
+              },
+              {
+                "Kind": "Detail",
+                "Title": "Szczeg\u00F3\u0142y",
+                "Width": 300,
+                "Visible": false
+              },
+              {
+                "Kind": "Completed",
+                "Title": "Czas wyniku",
+                "Width": 165,
+                "Visible": false
+              },
+              {
+                "Kind": "Session",
+                "Title": "Sesja",
+                "Width": 280,
+                "Visible": false
+              }
+            ]
+          },
+          "RecipeBrowser": {
+            "DefinitionId": "",
+            "ShowDefinitionPicker": true,
+            "AllowEdit": true,
+            "AllowReadPlc": true,
+            "AllowApply": true,
+            "ShowHeader": true,
+            "PageSize": 50,
+            "RowHeight": 34,
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Name",
+                "Title": "Nastawa",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Tag",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Type",
+                "Title": "Typ",
+                "Width": 95,
+                "Visible": true
+              },
+              {
+                "Kind": "Unit",
+                "Title": "Jednostka",
+                "Width": 75,
+                "Visible": true
+              },
+              {
+                "Kind": "Minimum",
+                "Title": "Minimum",
+                "Width": 100,
+                "Visible": true
+              },
+              {
+                "Kind": "Maximum",
+                "Title": "Maksimum",
+                "Width": 100,
+                "Visible": true
+              },
+              {
+                "Kind": "Value",
+                "Title": "Warto\u015B\u0107 receptury",
+                "Width": 190,
+                "Visible": true
+              }
+            ]
+          },
+          "Pipe": {
+            "Points": [],
+            "Diameter": 20,
+            "WallThickness": 2,
+            "BendRadius": 24,
+            "Shading": true,
+            "HighlightColor": "#60FFFFFF",
+            "StartFlange": false,
+            "EndFlange": false,
+            "FlowMode": "Tag",
+            "FlowDirection": "FromSign",
+            "AnimateFlow": true,
+            "Speed": 45,
+            "Deadband": 0,
+            "SpeedFromValue": false,
+            "MarkerSpacing": 38
+          },
+          "SliderScale": {
+            "Visible": false,
+            "Side": "Far",
+            "MajorDivisions": 5,
+            "MinorDivisions": 5,
+            "ShowLabels": true,
+            "Decimals": 0,
+            "FontSize": 11,
+            "Thickness": 1,
+            "MajorLength": 8,
+            "MinorLength": 4,
+            "Color": "#E8F1FA"
+          },
+          "Gauge": {
+            "Style": "Dial",
+            "Stretch": "Uniform",
+            "CaptionFontSize": 12,
+            "Needle": "Triangle",
+            "Reverse": false,
+            "Logarithmic": false,
+            "StartAngle": 180,
+            "SweepAngle": 180,
+            "TrackThickness": 12,
+            "NeedleWidth": 3,
+            "NeedleLength": 0.85,
+            "NeedleColor": "#E8F1FA",
+            "ShowProgress": true,
+            "ShowCaption": true,
+            "ShowValue": true,
+            "ShowUnit": true,
+            "ShowFrame": false,
+            "ShowTicks": true,
+            "ShowLabels": true,
+            "MajorDivisions": 5,
+            "MinorDivisions": 5,
+            "ScaleDecimals": 0,
+            "ScaleFontSize": 10,
+            "ScaleColor": "#A8BACA",
+            "Origin": "Minimum",
+            "OriginValue": 0,
+            "ColorFromZones": false,
+            "Zones": [],
+            "ShowTarget": false,
+            "TargetTagId": "",
+            "TargetValue": 50,
+            "TargetTolerance": 0,
+            "TargetColor": "#FFCF63",
+            "PreviewValue": 55,
+            "ShowRangeWarning": true
+          },
+          "States": [],
+          "Animations": [],
+          "Entries": [],
+          "ImageId": "",
+          "ImageStretch": "Uniform",
+          "PreviewValue": 0,
+          "UnmappedText": "\u2014",
+          "Events": [],
+          "Id": "05ddb93150d749c3a947a2d622d432be",
+          "Name": "Opis zadanej",
+          "Comment": "",
+          "Kind": "Text",
+          "X": 248,
+          "Y": 606,
+          "Width": 990,
+          "Height": 68,
+          "Text": "Ustaw serwer w Historii projektu i has\u0142o HMI_HISTORY_PASSWORD na komputerze Clienta.\nZapis pozostaje w lokalnym buforze do potwierdzenia bazy. F9 pokazuje b\u0142\u0119dy i zaleg\u0142o\u015Bci.",
+          "TagId": "",
+          "VisibilityTagId": "",
+          "Background": "#1B2C3F",
+          "Foreground": "#42627E",
+          "Accent": "#30C7B5",
+          "FontSize": 17,
+          "Minimum": 0,
+          "Maximum": 100,
+          "BorderThickness": 0,
+          "Unit": "",
+          "Decimals": 1,
+          "CanWrite": false,
+          "MaxTextLength": 256,
+          "ButtonAction": "Toggle",
+          "WriteValue": 1,
+          "TargetScreenId": "",
+          "Rotation": 0,
+          "IsVisible": true,
+          "LayerId": "base",
+          "GroupId": "",
+          "ZIndex": 0,
+          "IsLocked": false,
+          "FontFamily": "Segoe UI",
+          "FontBold": false,
+          "FontItalic": false,
+          "TextAlignment": "Left",
+          "BackgroundOpacity": 0,
+          "BorderColor": "#58758F",
+          "OffColor": "#34424D",
+          "BadColor": "#BF8843",
+          "FillColor2": "#102030",
+          "FillStyle": "Solid",
+          "GradientAngle": 90,
+          "CornerRadius": 0,
+          "DashStyle": "Solid",
+          "LineCap": "Flat",
+          "LineDirection": "Horizontal",
+          "StartArrow": false,
+          "EndArrow": false,
+          "ArrowSize": 12,
+          "IndicatorShape": "Circle",
+          "NumericType": "Auto",
+          "NumericFormat": "Fixed",
+          "SliderDirection": "Up",
+          "SliderMode": "Fill",
+          "SliderInteractive": false,
+          "ShowThumb": false,
+          "SliderStep": 1,
+          "ThumbSize": 12,
+          "ThumbColor": "#E8F1FA"
+        }
+      ],
+      "Layers": [
+        {
+          "Id": "base",
+          "Name": "Warstwa 1",
+          "IsVisible": true,
+          "IsLocked": false
+        }
+      ],
+      "Grid": {
+        "GuidesVisible": true,
+        "SnapToGuides": true,
+        "SnapToObjects": true,
+        "Guides": [],
+        "Visible": true,
+        "SnapEnabled": true,
+        "Spacing": 8
+      }
+    },
+    {
+      "UseTemplate": false,
+      "TemplateId": "",
+      "TemplateAboveContent": true,
+      "Access": {
+        "RequireLogin": false,
+        "DenyAll": false,
+        "RoleIds": []
+      },
+      "Popup": {
+        "Enabled": false,
+        "Modal": false,
+        "Resizable": false,
+        "TemplateElementId": ""
+      },
+      "Id": "e9e5ae9369254a52bb1f588a4e0a4d74",
+      "Name": "Drugi ekran",
+      "Width": 1280,
+      "Height": 720,
+      "Background": "#EFF3F8",
+      "Elements": [
+        {
+          "PropertyBindings": [],
+          "StyleId": "",
+          "EquipmentInstanceId": "",
+          "StyleOverrides": [],
+          "Symbol": null,
+          "Line": null,
+          "Vector": {
+            "Nodes": [],
+            "Closed": false,
+            "FillEnabled": true,
+            "Join": "Round",
+            "EvenOddFill": true
+          },
+          "Arc": {
+            "CenterX": 0.5,
+            "CenterY": 0.5,
+            "RadiusX": 0.5,
+            "RadiusY": 0.5,
+            "StartAngle": 0,
+            "SweepAngle": 90,
+            "ThroughFraction": 0.5
+          },
+          "Path": {
+            "Width": 200,
+            "Height": 100,
+            "Parts": [],
+            "Closed": true
+          },
+          "FlipX": false,
+          "FlipY": false,
+          "Trend": {
+            "Pens": [],
+            "LeftAxis": {
+              "Title": "",
+              "AutoScale": true,
+              "Minimum": 0,
+              "Maximum": 100
+            },
+            "RightAxis": {
+              "Title": "",
+              "AutoScale": true,
+              "Minimum": 0,
+              "Maximum": 100
+            },
+            "WindowSeconds": 60,
+            "GapSeconds": 10,
+            "RefreshMilliseconds": 250,
+            "ShowGrid": true,
+            "ShowLegend": true,
+            "ShowToolbar": true,
+            "ShowCursor": true,
+            "GridColor": "#334F6378",
+            "CursorColor": "#E9A535",
+            "TimeFormat": "HH:mm:ss"
+          },
+          "AlarmList": {
+            "ShowActiveUnacknowledged": true,
+            "ShowActiveAcknowledged": true,
+            "ShowReturnedUnacknowledged": true,
+            "MaximumPriority": "Information",
+            "Search": "",
+            "ShowHeader": true,
+            "ShowCounts": true,
+            "ShowToolbar": true,
+            "AllowAcknowledgement": true,
+            "ShowComment": false,
+            "PageSize": 20,
+            "RefreshMilliseconds": 1000,
+            "RowHeight": 34,
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss",
+            "EmptyText": "Brak alarm\u00F3w",
+            "ActiveUnacknowledgedColor": "#FDE6E7",
+            "ActiveAcknowledgedColor": "#E5F2E9",
+            "ReturnedColor": "#FFF0CC",
+            "UnknownColor": "#E4E8EE",
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Priority",
+                "Title": "Priorytet",
+                "Width": 115,
+                "Visible": true
+              },
+              {
+                "Kind": "State",
+                "Title": "Stan",
+                "Width": 225,
+                "Visible": true
+              },
+              {
+                "Kind": "Name",
+                "Title": "Alarm",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Message",
+                "Title": "Komunikat",
+                "Width": 260,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Tag",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Activated",
+                "Title": "Wyst\u0105pienie",
+                "Width": 160,
+                "Visible": true
+              },
+              {
+                "Kind": "Returned",
+                "Title": "Powr\u00F3t",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Acknowledged",
+                "Title": "Potwierdzenie",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Quality",
+                "Title": "Dane",
+                "Width": 90,
+                "Visible": true
+              }
+            ]
+          },
+          "Access": {
+            "RequireLogin": false,
+            "DenyAll": false,
+            "RoleIds": []
+          },
+          "ViewAccess": {
+            "RequireLogin": false,
+            "DenyAll": false,
+            "RoleIds": []
+          },
+          "HistoryBrowser": {
+            "RestrictTags": false,
+            "TagIds": [],
+            "AllowTagSelection": true,
+            "AllowTimeSelection": true,
+            "AllowQualitySelection": true,
+            "AllowExport": true,
+            "ShowHeader": true,
+            "ShowStatus": true,
+            "UseUtc": false,
+            "NewestFirst": true,
+            "WindowMinutes": 60,
+            "AutoRefreshSeconds": 0,
+            "PageSize": 100,
+            "RowHeight": 30,
+            "Quality": "All",
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss.fff",
+            "EmptyText": "Brak pr\u00F3bek w wybranym zakresie",
+            "BadColor": "#FDE6E7",
+            "UncertainColor": "#FFF0CC",
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Recorded",
+                "Title": "Czas zapisu",
+                "Width": 210,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Zmienna",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Value",
+                "Title": "Warto\u015B\u0107",
+                "Width": 200,
+                "Visible": true
+              },
+              {
+                "Kind": "Unit",
+                "Title": "Jednostka",
+                "Width": 85,
+                "Visible": true
+              },
+              {
+                "Kind": "Quality",
+                "Title": "Jako\u015B\u0107",
+                "Width": 170,
+                "Visible": true
+              },
+              {
+                "Kind": "DataType",
+                "Title": "Typ",
+                "Width": 90,
+                "Visible": true
+              },
+              {
+                "Kind": "Source",
+                "Title": "\u0179r\u00F3d\u0142o",
+                "Width": 180,
+                "Visible": false
+              },
+              {
+                "Kind": "SourceTime",
+                "Title": "Czas \u017Ar\u00F3d\u0142a",
+                "Width": 210,
+                "Visible": false
+              },
+              {
+                "Kind": "Received",
+                "Title": "Czas odbioru",
+                "Width": 210,
+                "Visible": false
+              },
+              {
+                "Kind": "SampleId",
+                "Title": "Id pr\u00F3bki",
+                "Width": 290,
+                "Visible": false
+              }
+            ]
+          },
+          "AuditLog": {
+            "PageSize": 50,
+            "WindowHours": 24,
+            "RefreshSeconds": 5,
+            "ShowHeader": true,
+            "ShowFilters": true,
+            "AllowExport": true,
+            "UseUtc": false,
+            "RowHeight": 32,
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss",
+            "Search": "",
+            "Operation": null,
+            "Outcome": null,
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "FailedColor": "#FDE6E7",
+            "UnknownColor": "#FFF0CC",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Time",
+                "Title": "Czas",
+                "Width": 165,
+                "Visible": true
+              },
+              {
+                "Kind": "Operator",
+                "Title": "Operator",
+                "Width": 135,
+                "Visible": true
+              },
+              {
+                "Kind": "Operation",
+                "Title": "Operacja",
+                "Width": 155,
+                "Visible": true
+              },
+              {
+                "Kind": "Target",
+                "Title": "Cel",
+                "Width": 150,
+                "Visible": true
+              },
+              {
+                "Kind": "Previous",
+                "Title": "Przed \u017C\u0105daniem",
+                "Width": 115,
+                "Visible": true
+              },
+              {
+                "Kind": "Requested",
+                "Title": "\u017B\u0105danie",
+                "Width": 110,
+                "Visible": true
+              },
+              {
+                "Kind": "Outcome",
+                "Title": "Wynik",
+                "Width": 145,
+                "Visible": true
+              },
+              {
+                "Kind": "Detail",
+                "Title": "Szczeg\u00F3\u0142y",
+                "Width": 300,
+                "Visible": false
+              },
+              {
+                "Kind": "Completed",
+                "Title": "Czas wyniku",
+                "Width": 165,
+                "Visible": false
+              },
+              {
+                "Kind": "Session",
+                "Title": "Sesja",
+                "Width": 280,
+                "Visible": false
+              }
+            ]
+          },
+          "RecipeBrowser": {
+            "DefinitionId": "",
+            "ShowDefinitionPicker": true,
+            "AllowEdit": true,
+            "AllowReadPlc": true,
+            "AllowApply": true,
+            "ShowHeader": true,
+            "PageSize": 50,
+            "RowHeight": 34,
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Name",
+                "Title": "Nastawa",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Tag",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Type",
+                "Title": "Typ",
+                "Width": 95,
+                "Visible": true
+              },
+              {
+                "Kind": "Unit",
+                "Title": "Jednostka",
+                "Width": 75,
+                "Visible": true
+              },
+              {
+                "Kind": "Minimum",
+                "Title": "Minimum",
+                "Width": 100,
+                "Visible": true
+              },
+              {
+                "Kind": "Maximum",
+                "Title": "Maksimum",
+                "Width": 100,
+                "Visible": true
+              },
+              {
+                "Kind": "Value",
+                "Title": "Warto\u015B\u0107 receptury",
+                "Width": 190,
+                "Visible": true
+              }
+            ]
+          },
+          "Pipe": {
+            "Points": [],
+            "Diameter": 20,
+            "WallThickness": 2,
+            "BendRadius": 24,
+            "Shading": true,
+            "HighlightColor": "#60FFFFFF",
+            "StartFlange": false,
+            "EndFlange": false,
+            "FlowMode": "Tag",
+            "FlowDirection": "FromSign",
+            "AnimateFlow": true,
+            "Speed": 45,
+            "Deadband": 0,
+            "SpeedFromValue": false,
+            "MarkerSpacing": 38
+          },
+          "SliderScale": {
+            "Visible": false,
+            "Side": "Far",
+            "MajorDivisions": 5,
+            "MinorDivisions": 5,
+            "ShowLabels": true,
+            "Decimals": 0,
+            "FontSize": 11,
+            "Thickness": 1,
+            "MajorLength": 8,
+            "MinorLength": 4,
+            "Color": "#E8F1FA"
+          },
+          "Gauge": {
+            "Style": "Dial",
+            "Stretch": "Uniform",
+            "CaptionFontSize": 12,
+            "Needle": "Triangle",
+            "Reverse": false,
+            "Logarithmic": false,
+            "StartAngle": 180,
+            "SweepAngle": 180,
+            "TrackThickness": 12,
+            "NeedleWidth": 3,
+            "NeedleLength": 0.85,
+            "NeedleColor": "#E8F1FA",
+            "ShowProgress": true,
+            "ShowCaption": true,
+            "ShowValue": true,
+            "ShowUnit": true,
+            "ShowFrame": false,
+            "ShowTicks": true,
+            "ShowLabels": true,
+            "MajorDivisions": 5,
+            "MinorDivisions": 5,
+            "ScaleDecimals": 0,
+            "ScaleFontSize": 10,
+            "ScaleColor": "#A8BACA",
+            "Origin": "Minimum",
+            "OriginValue": 0,
+            "ColorFromZones": false,
+            "Zones": [],
+            "ShowTarget": false,
+            "TargetTagId": "",
+            "TargetValue": 50,
+            "TargetTolerance": 0,
+            "TargetColor": "#FFCF63",
+            "PreviewValue": 55,
+            "ShowRangeWarning": true
+          },
+          "States": [],
+          "Animations": [],
+          "Entries": [],
+          "ImageId": "",
+          "ImageStretch": "Uniform",
+          "PreviewValue": 0,
+          "UnmappedText": "\u2014",
+          "Events": [],
+          "Id": "44cfd9e581784bf79d3adfbf98f9c25b",
+          "Name": "Informacja",
+          "Comment": "",
+          "Kind": "Text",
+          "X": 80,
+          "Y": 240,
+          "Width": 1120,
+          "Height": 100,
+          "Text": "Historia trendu jest nadal zbierana. Wr\u00F3\u0107 do ekranu Trendy.",
+          "TagId": "",
+          "VisibilityTagId": "",
+          "Background": "#1B2C3F",
+          "Foreground": "#243D53",
+          "Accent": "#30C7B5",
+          "FontSize": 26,
+          "Minimum": 0,
+          "Maximum": 100,
+          "BorderThickness": 0,
+          "Unit": "",
+          "Decimals": 1,
+          "CanWrite": false,
+          "MaxTextLength": 256,
+          "ButtonAction": "Toggle",
+          "WriteValue": 1,
+          "TargetScreenId": "",
+          "Rotation": 0,
+          "IsVisible": true,
+          "LayerId": "base",
+          "GroupId": "",
+          "ZIndex": 0,
+          "IsLocked": false,
+          "FontFamily": "Segoe UI",
+          "FontBold": false,
+          "FontItalic": false,
+          "TextAlignment": "Center",
+          "BackgroundOpacity": 0,
+          "BorderColor": "#58758F",
+          "OffColor": "#34424D",
+          "BadColor": "#BF8843",
+          "FillColor2": "#102030",
+          "FillStyle": "Solid",
+          "GradientAngle": 90,
+          "CornerRadius": 0,
+          "DashStyle": "Solid",
+          "LineCap": "Flat",
+          "LineDirection": "Horizontal",
+          "StartArrow": false,
+          "EndArrow": false,
+          "ArrowSize": 12,
+          "IndicatorShape": "Circle",
+          "NumericType": "Auto",
+          "NumericFormat": "Fixed",
+          "SliderDirection": "Up",
+          "SliderMode": "Fill",
+          "SliderInteractive": false,
+          "ShowThumb": false,
+          "SliderStep": 1,
+          "ThumbSize": 12,
+          "ThumbColor": "#E8F1FA"
+        },
+        {
+          "PropertyBindings": [],
+          "StyleId": "",
+          "EquipmentInstanceId": "",
+          "StyleOverrides": [],
+          "Symbol": null,
+          "Line": null,
+          "Vector": {
+            "Nodes": [],
+            "Closed": false,
+            "FillEnabled": true,
+            "Join": "Round",
+            "EvenOddFill": true
+          },
+          "Arc": {
+            "CenterX": 0.5,
+            "CenterY": 0.5,
+            "RadiusX": 0.5,
+            "RadiusY": 0.5,
+            "StartAngle": 0,
+            "SweepAngle": 90,
+            "ThroughFraction": 0.5
+          },
+          "Path": {
+            "Width": 200,
+            "Height": 100,
+            "Parts": [],
+            "Closed": true
+          },
+          "FlipX": false,
+          "FlipY": false,
+          "Trend": {
+            "Pens": [],
+            "LeftAxis": {
+              "Title": "",
+              "AutoScale": true,
+              "Minimum": 0,
+              "Maximum": 100
+            },
+            "RightAxis": {
+              "Title": "",
+              "AutoScale": true,
+              "Minimum": 0,
+              "Maximum": 100
+            },
+            "WindowSeconds": 60,
+            "GapSeconds": 10,
+            "RefreshMilliseconds": 250,
+            "ShowGrid": true,
+            "ShowLegend": true,
+            "ShowToolbar": true,
+            "ShowCursor": true,
+            "GridColor": "#334F6378",
+            "CursorColor": "#E9A535",
+            "TimeFormat": "HH:mm:ss"
+          },
+          "AlarmList": {
+            "ShowActiveUnacknowledged": true,
+            "ShowActiveAcknowledged": true,
+            "ShowReturnedUnacknowledged": true,
+            "MaximumPriority": "Information",
+            "Search": "",
+            "ShowHeader": true,
+            "ShowCounts": true,
+            "ShowToolbar": true,
+            "AllowAcknowledgement": true,
+            "ShowComment": false,
+            "PageSize": 20,
+            "RefreshMilliseconds": 1000,
+            "RowHeight": 34,
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss",
+            "EmptyText": "Brak alarm\u00F3w",
+            "ActiveUnacknowledgedColor": "#FDE6E7",
+            "ActiveAcknowledgedColor": "#E5F2E9",
+            "ReturnedColor": "#FFF0CC",
+            "UnknownColor": "#E4E8EE",
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Priority",
+                "Title": "Priorytet",
+                "Width": 115,
+                "Visible": true
+              },
+              {
+                "Kind": "State",
+                "Title": "Stan",
+                "Width": 225,
+                "Visible": true
+              },
+              {
+                "Kind": "Name",
+                "Title": "Alarm",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Message",
+                "Title": "Komunikat",
+                "Width": 260,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Tag",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Activated",
+                "Title": "Wyst\u0105pienie",
+                "Width": 160,
+                "Visible": true
+              },
+              {
+                "Kind": "Returned",
+                "Title": "Powr\u00F3t",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Acknowledged",
+                "Title": "Potwierdzenie",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Quality",
+                "Title": "Dane",
+                "Width": 90,
+                "Visible": true
+              }
+            ]
+          },
+          "Access": {
+            "RequireLogin": false,
+            "DenyAll": false,
+            "RoleIds": []
+          },
+          "ViewAccess": {
+            "RequireLogin": false,
+            "DenyAll": false,
+            "RoleIds": []
+          },
+          "HistoryBrowser": {
+            "RestrictTags": false,
+            "TagIds": [],
+            "AllowTagSelection": true,
+            "AllowTimeSelection": true,
+            "AllowQualitySelection": true,
+            "AllowExport": true,
+            "ShowHeader": true,
+            "ShowStatus": true,
+            "UseUtc": false,
+            "NewestFirst": true,
+            "WindowMinutes": 60,
+            "AutoRefreshSeconds": 0,
+            "PageSize": 100,
+            "RowHeight": 30,
+            "Quality": "All",
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss.fff",
+            "EmptyText": "Brak pr\u00F3bek w wybranym zakresie",
+            "BadColor": "#FDE6E7",
+            "UncertainColor": "#FFF0CC",
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Recorded",
+                "Title": "Czas zapisu",
+                "Width": 210,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Zmienna",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Value",
+                "Title": "Warto\u015B\u0107",
+                "Width": 200,
+                "Visible": true
+              },
+              {
+                "Kind": "Unit",
+                "Title": "Jednostka",
+                "Width": 85,
+                "Visible": true
+              },
+              {
+                "Kind": "Quality",
+                "Title": "Jako\u015B\u0107",
+                "Width": 170,
+                "Visible": true
+              },
+              {
+                "Kind": "DataType",
+                "Title": "Typ",
+                "Width": 90,
+                "Visible": true
+              },
+              {
+                "Kind": "Source",
+                "Title": "\u0179r\u00F3d\u0142o",
+                "Width": 180,
+                "Visible": false
+              },
+              {
+                "Kind": "SourceTime",
+                "Title": "Czas \u017Ar\u00F3d\u0142a",
+                "Width": 210,
+                "Visible": false
+              },
+              {
+                "Kind": "Received",
+                "Title": "Czas odbioru",
+                "Width": 210,
+                "Visible": false
+              },
+              {
+                "Kind": "SampleId",
+                "Title": "Id pr\u00F3bki",
+                "Width": 290,
+                "Visible": false
+              }
+            ]
+          },
+          "AuditLog": {
+            "PageSize": 50,
+            "WindowHours": 24,
+            "RefreshSeconds": 5,
+            "ShowHeader": true,
+            "ShowFilters": true,
+            "AllowExport": true,
+            "UseUtc": false,
+            "RowHeight": 32,
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss",
+            "Search": "",
+            "Operation": null,
+            "Outcome": null,
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "FailedColor": "#FDE6E7",
+            "UnknownColor": "#FFF0CC",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Time",
+                "Title": "Czas",
+                "Width": 165,
+                "Visible": true
+              },
+              {
+                "Kind": "Operator",
+                "Title": "Operator",
+                "Width": 135,
+                "Visible": true
+              },
+              {
+                "Kind": "Operation",
+                "Title": "Operacja",
+                "Width": 155,
+                "Visible": true
+              },
+              {
+                "Kind": "Target",
+                "Title": "Cel",
+                "Width": 150,
+                "Visible": true
+              },
+              {
+                "Kind": "Previous",
+                "Title": "Przed \u017C\u0105daniem",
+                "Width": 115,
+                "Visible": true
+              },
+              {
+                "Kind": "Requested",
+                "Title": "\u017B\u0105danie",
+                "Width": 110,
+                "Visible": true
+              },
+              {
+                "Kind": "Outcome",
+                "Title": "Wynik",
+                "Width": 145,
+                "Visible": true
+              },
+              {
+                "Kind": "Detail",
+                "Title": "Szczeg\u00F3\u0142y",
+                "Width": 300,
+                "Visible": false
+              },
+              {
+                "Kind": "Completed",
+                "Title": "Czas wyniku",
+                "Width": 165,
+                "Visible": false
+              },
+              {
+                "Kind": "Session",
+                "Title": "Sesja",
+                "Width": 280,
+                "Visible": false
+              }
+            ]
+          },
+          "RecipeBrowser": {
+            "DefinitionId": "",
+            "ShowDefinitionPicker": true,
+            "AllowEdit": true,
+            "AllowReadPlc": true,
+            "AllowApply": true,
+            "ShowHeader": true,
+            "PageSize": 50,
+            "RowHeight": 34,
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Name",
+                "Title": "Nastawa",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Tag",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Type",
+                "Title": "Typ",
+                "Width": 95,
+                "Visible": true
+              },
+              {
+                "Kind": "Unit",
+                "Title": "Jednostka",
+                "Width": 75,
+                "Visible": true
+              },
+              {
+                "Kind": "Minimum",
+                "Title": "Minimum",
+                "Width": 100,
+                "Visible": true
+              },
+              {
+                "Kind": "Maximum",
+                "Title": "Maksimum",
+                "Width": 100,
+                "Visible": true
+              },
+              {
+                "Kind": "Value",
+                "Title": "Warto\u015B\u0107 receptury",
+                "Width": 190,
+                "Visible": true
+              }
+            ]
+          },
+          "Pipe": {
+            "Points": [],
+            "Diameter": 20,
+            "WallThickness": 2,
+            "BendRadius": 24,
+            "Shading": true,
+            "HighlightColor": "#60FFFFFF",
+            "StartFlange": false,
+            "EndFlange": false,
+            "FlowMode": "Tag",
+            "FlowDirection": "FromSign",
+            "AnimateFlow": true,
+            "Speed": 45,
+            "Deadband": 0,
+            "SpeedFromValue": false,
+            "MarkerSpacing": 38
+          },
+          "SliderScale": {
+            "Visible": false,
+            "Side": "Far",
+            "MajorDivisions": 5,
+            "MinorDivisions": 5,
+            "ShowLabels": true,
+            "Decimals": 0,
+            "FontSize": 11,
+            "Thickness": 1,
+            "MajorLength": 8,
+            "MinorLength": 4,
+            "Color": "#E8F1FA"
+          },
+          "Gauge": {
+            "Style": "Dial",
+            "Stretch": "Uniform",
+            "CaptionFontSize": 12,
+            "Needle": "Triangle",
+            "Reverse": false,
+            "Logarithmic": false,
+            "StartAngle": 180,
+            "SweepAngle": 180,
+            "TrackThickness": 12,
+            "NeedleWidth": 3,
+            "NeedleLength": 0.85,
+            "NeedleColor": "#E8F1FA",
+            "ShowProgress": true,
+            "ShowCaption": true,
+            "ShowValue": true,
+            "ShowUnit": true,
+            "ShowFrame": false,
+            "ShowTicks": true,
+            "ShowLabels": true,
+            "MajorDivisions": 5,
+            "MinorDivisions": 5,
+            "ScaleDecimals": 0,
+            "ScaleFontSize": 10,
+            "ScaleColor": "#A8BACA",
+            "Origin": "Minimum",
+            "OriginValue": 0,
+            "ColorFromZones": false,
+            "Zones": [],
+            "ShowTarget": false,
+            "TargetTagId": "",
+            "TargetValue": 50,
+            "TargetTolerance": 0,
+            "TargetColor": "#FFCF63",
+            "PreviewValue": 55,
+            "ShowRangeWarning": true
+          },
+          "States": [],
+          "Animations": [],
+          "Entries": [],
+          "ImageId": "",
+          "ImageStretch": "Uniform",
+          "PreviewValue": 0,
+          "UnmappedText": "\u2014",
+          "Events": [],
+          "Id": "4238893ef04746df9a512ae50a898a89",
+          "Name": "Powr\u00F3t",
+          "Comment": "",
+          "Kind": "Button",
+          "X": 460,
+          "Y": 380,
+          "Width": 360,
+          "Height": 64,
+          "Text": "Powr\u00F3t do trend\u00F3w",
+          "TagId": "",
+          "VisibilityTagId": "",
+          "Background": "#1B2C3F",
+          "Foreground": "#E8F1FA",
+          "Accent": "#30C7B5",
+          "FontSize": 18,
+          "Minimum": 0,
+          "Maximum": 100,
+          "BorderThickness": 1,
+          "Unit": "",
+          "Decimals": 1,
+          "CanWrite": false,
+          "MaxTextLength": 256,
+          "ButtonAction": "Navigate",
+          "WriteValue": 1,
+          "TargetScreenId": "444f978e6246443eaa9ab91900a5a8ef",
+          "Rotation": 0,
+          "IsVisible": true,
+          "LayerId": "base",
+          "GroupId": "",
+          "ZIndex": 0,
+          "IsLocked": false,
+          "FontFamily": "Segoe UI",
+          "FontBold": false,
+          "FontItalic": false,
+          "TextAlignment": "Center",
+          "BackgroundOpacity": 1,
+          "BorderColor": "#58758F",
+          "OffColor": "#34424D",
+          "BadColor": "#BF8843",
+          "FillColor2": "#102030",
+          "FillStyle": "Solid",
+          "GradientAngle": 90,
+          "CornerRadius": 0,
+          "DashStyle": "Solid",
+          "LineCap": "Flat",
+          "LineDirection": "Horizontal",
+          "StartArrow": false,
+          "EndArrow": false,
+          "ArrowSize": 12,
+          "IndicatorShape": "Circle",
+          "NumericType": "Auto",
+          "NumericFormat": "Fixed",
+          "SliderDirection": "Up",
+          "SliderMode": "Fill",
+          "SliderInteractive": false,
+          "ShowThumb": false,
+          "SliderStep": 1,
+          "ThumbSize": 12,
+          "ThumbColor": "#E8F1FA"
+        }
+      ],
+      "Layers": [
+        {
+          "Id": "base",
+          "Name": "Warstwa 1",
+          "IsVisible": true,
+          "IsLocked": false
+        }
+      ],
+      "Grid": {
+        "GuidesVisible": true,
+        "SnapToGuides": true,
+        "SnapToObjects": true,
+        "Guides": [],
+        "Visible": true,
+        "SnapEnabled": true,
+        "Spacing": 8
+      }
+    },
+    {
+      "UseTemplate": false,
+      "TemplateId": "",
+      "TemplateAboveContent": true,
+      "Access": {
+        "RequireLogin": false,
+        "DenyAll": false,
+        "RoleIds": []
+      },
+      "Popup": {
+        "Enabled": false,
+        "Modal": false,
+        "Resizable": false,
+        "TemplateElementId": ""
+      },
+      "Id": "8d0b0071bb604cfa9cf069ff5bd185ba",
+      "Name": "Przegl\u0105darka historii",
+      "Width": 1280,
+      "Height": 720,
+      "Background": "#EFF3F8",
+      "Elements": [
+        {
+          "PropertyBindings": [],
+          "StyleId": "",
+          "EquipmentInstanceId": "",
+          "StyleOverrides": [],
+          "Symbol": null,
+          "Line": null,
+          "Vector": {
+            "Nodes": [],
+            "Closed": false,
+            "FillEnabled": true,
+            "Join": "Round",
+            "EvenOddFill": true
+          },
+          "Arc": {
+            "CenterX": 0.5,
+            "CenterY": 0.5,
+            "RadiusX": 0.5,
+            "RadiusY": 0.5,
+            "StartAngle": 0,
+            "SweepAngle": 90,
+            "ThroughFraction": 0.5
+          },
+          "Path": {
+            "Width": 200,
+            "Height": 100,
+            "Parts": [],
+            "Closed": true
+          },
+          "FlipX": false,
+          "FlipY": false,
+          "Trend": {
+            "Pens": [],
+            "LeftAxis": {
+              "Title": "",
+              "AutoScale": true,
+              "Minimum": 0,
+              "Maximum": 100
+            },
+            "RightAxis": {
+              "Title": "",
+              "AutoScale": true,
+              "Minimum": 0,
+              "Maximum": 100
+            },
+            "WindowSeconds": 60,
+            "GapSeconds": 10,
+            "RefreshMilliseconds": 250,
+            "ShowGrid": true,
+            "ShowLegend": true,
+            "ShowToolbar": true,
+            "ShowCursor": true,
+            "GridColor": "#334F6378",
+            "CursorColor": "#E9A535",
+            "TimeFormat": "HH:mm:ss"
+          },
+          "AlarmList": {
+            "ShowActiveUnacknowledged": true,
+            "ShowActiveAcknowledged": true,
+            "ShowReturnedUnacknowledged": true,
+            "MaximumPriority": "Information",
+            "Search": "",
+            "ShowHeader": true,
+            "ShowCounts": true,
+            "ShowToolbar": true,
+            "AllowAcknowledgement": true,
+            "ShowComment": false,
+            "PageSize": 20,
+            "RefreshMilliseconds": 1000,
+            "RowHeight": 34,
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss",
+            "EmptyText": "Brak alarm\u00F3w",
+            "ActiveUnacknowledgedColor": "#FDE6E7",
+            "ActiveAcknowledgedColor": "#E5F2E9",
+            "ReturnedColor": "#FFF0CC",
+            "UnknownColor": "#E4E8EE",
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Priority",
+                "Title": "Priorytet",
+                "Width": 115,
+                "Visible": true
+              },
+              {
+                "Kind": "State",
+                "Title": "Stan",
+                "Width": 225,
+                "Visible": true
+              },
+              {
+                "Kind": "Name",
+                "Title": "Alarm",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Message",
+                "Title": "Komunikat",
+                "Width": 260,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Tag",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Activated",
+                "Title": "Wyst\u0105pienie",
+                "Width": 160,
+                "Visible": true
+              },
+              {
+                "Kind": "Returned",
+                "Title": "Powr\u00F3t",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Acknowledged",
+                "Title": "Potwierdzenie",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Quality",
+                "Title": "Dane",
+                "Width": 90,
+                "Visible": true
+              }
+            ]
+          },
+          "Access": {
+            "RequireLogin": false,
+            "DenyAll": false,
+            "RoleIds": []
+          },
+          "ViewAccess": {
+            "RequireLogin": false,
+            "DenyAll": false,
+            "RoleIds": []
+          },
+          "HistoryBrowser": {
+            "RestrictTags": false,
+            "TagIds": [],
+            "AllowTagSelection": true,
+            "AllowTimeSelection": true,
+            "AllowQualitySelection": true,
+            "AllowExport": true,
+            "ShowHeader": true,
+            "ShowStatus": true,
+            "UseUtc": false,
+            "NewestFirst": true,
+            "WindowMinutes": 60,
+            "AutoRefreshSeconds": 0,
+            "PageSize": 100,
+            "RowHeight": 30,
+            "Quality": "All",
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss.fff",
+            "EmptyText": "Brak pr\u00F3bek w wybranym zakresie",
+            "BadColor": "#FDE6E7",
+            "UncertainColor": "#FFF0CC",
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Recorded",
+                "Title": "Czas zapisu",
+                "Width": 210,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Zmienna",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Value",
+                "Title": "Warto\u015B\u0107",
+                "Width": 200,
+                "Visible": true
+              },
+              {
+                "Kind": "Unit",
+                "Title": "Jednostka",
+                "Width": 85,
+                "Visible": true
+              },
+              {
+                "Kind": "Quality",
+                "Title": "Jako\u015B\u0107",
+                "Width": 170,
+                "Visible": true
+              },
+              {
+                "Kind": "DataType",
+                "Title": "Typ",
+                "Width": 90,
+                "Visible": true
+              },
+              {
+                "Kind": "Source",
+                "Title": "\u0179r\u00F3d\u0142o",
+                "Width": 180,
+                "Visible": false
+              },
+              {
+                "Kind": "SourceTime",
+                "Title": "Czas \u017Ar\u00F3d\u0142a",
+                "Width": 210,
+                "Visible": false
+              },
+              {
+                "Kind": "Received",
+                "Title": "Czas odbioru",
+                "Width": 210,
+                "Visible": false
+              },
+              {
+                "Kind": "SampleId",
+                "Title": "Id pr\u00F3bki",
+                "Width": 290,
+                "Visible": false
+              }
+            ]
+          },
+          "AuditLog": {
+            "PageSize": 50,
+            "WindowHours": 24,
+            "RefreshSeconds": 5,
+            "ShowHeader": true,
+            "ShowFilters": true,
+            "AllowExport": true,
+            "UseUtc": false,
+            "RowHeight": 32,
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss",
+            "Search": "",
+            "Operation": null,
+            "Outcome": null,
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "FailedColor": "#FDE6E7",
+            "UnknownColor": "#FFF0CC",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Time",
+                "Title": "Czas",
+                "Width": 165,
+                "Visible": true
+              },
+              {
+                "Kind": "Operator",
+                "Title": "Operator",
+                "Width": 135,
+                "Visible": true
+              },
+              {
+                "Kind": "Operation",
+                "Title": "Operacja",
+                "Width": 155,
+                "Visible": true
+              },
+              {
+                "Kind": "Target",
+                "Title": "Cel",
+                "Width": 150,
+                "Visible": true
+              },
+              {
+                "Kind": "Previous",
+                "Title": "Przed \u017C\u0105daniem",
+                "Width": 115,
+                "Visible": true
+              },
+              {
+                "Kind": "Requested",
+                "Title": "\u017B\u0105danie",
+                "Width": 110,
+                "Visible": true
+              },
+              {
+                "Kind": "Outcome",
+                "Title": "Wynik",
+                "Width": 145,
+                "Visible": true
+              },
+              {
+                "Kind": "Detail",
+                "Title": "Szczeg\u00F3\u0142y",
+                "Width": 300,
+                "Visible": false
+              },
+              {
+                "Kind": "Completed",
+                "Title": "Czas wyniku",
+                "Width": 165,
+                "Visible": false
+              },
+              {
+                "Kind": "Session",
+                "Title": "Sesja",
+                "Width": 280,
+                "Visible": false
+              }
+            ]
+          },
+          "RecipeBrowser": {
+            "DefinitionId": "",
+            "ShowDefinitionPicker": true,
+            "AllowEdit": true,
+            "AllowReadPlc": true,
+            "AllowApply": true,
+            "ShowHeader": true,
+            "PageSize": 50,
+            "RowHeight": 34,
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Name",
+                "Title": "Nastawa",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Tag",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Type",
+                "Title": "Typ",
+                "Width": 95,
+                "Visible": true
+              },
+              {
+                "Kind": "Unit",
+                "Title": "Jednostka",
+                "Width": 75,
+                "Visible": true
+              },
+              {
+                "Kind": "Minimum",
+                "Title": "Minimum",
+                "Width": 100,
+                "Visible": true
+              },
+              {
+                "Kind": "Maximum",
+                "Title": "Maksimum",
+                "Width": 100,
+                "Visible": true
+              },
+              {
+                "Kind": "Value",
+                "Title": "Warto\u015B\u0107 receptury",
+                "Width": 190,
+                "Visible": true
+              }
+            ]
+          },
+          "Pipe": {
+            "Points": [],
+            "Diameter": 20,
+            "WallThickness": 2,
+            "BendRadius": 24,
+            "Shading": true,
+            "HighlightColor": "#60FFFFFF",
+            "StartFlange": false,
+            "EndFlange": false,
+            "FlowMode": "Tag",
+            "FlowDirection": "FromSign",
+            "AnimateFlow": true,
+            "Speed": 45,
+            "Deadband": 0,
+            "SpeedFromValue": false,
+            "MarkerSpacing": 38
+          },
+          "SliderScale": {
+            "Visible": false,
+            "Side": "Far",
+            "MajorDivisions": 5,
+            "MinorDivisions": 5,
+            "ShowLabels": true,
+            "Decimals": 0,
+            "FontSize": 11,
+            "Thickness": 1,
+            "MajorLength": 8,
+            "MinorLength": 4,
+            "Color": "#E8F1FA"
+          },
+          "Gauge": {
+            "Style": "Dial",
+            "Stretch": "Uniform",
+            "CaptionFontSize": 12,
+            "Needle": "Triangle",
+            "Reverse": false,
+            "Logarithmic": false,
+            "StartAngle": 180,
+            "SweepAngle": 180,
+            "TrackThickness": 12,
+            "NeedleWidth": 3,
+            "NeedleLength": 0.85,
+            "NeedleColor": "#E8F1FA",
+            "ShowProgress": true,
+            "ShowCaption": true,
+            "ShowValue": true,
+            "ShowUnit": true,
+            "ShowFrame": false,
+            "ShowTicks": true,
+            "ShowLabels": true,
+            "MajorDivisions": 5,
+            "MinorDivisions": 5,
+            "ScaleDecimals": 0,
+            "ScaleFontSize": 10,
+            "ScaleColor": "#A8BACA",
+            "Origin": "Minimum",
+            "OriginValue": 0,
+            "ColorFromZones": false,
+            "Zones": [],
+            "ShowTarget": false,
+            "TargetTagId": "",
+            "TargetValue": 50,
+            "TargetTolerance": 0,
+            "TargetColor": "#FFCF63",
+            "PreviewValue": 55,
+            "ShowRangeWarning": true
+          },
+          "States": [],
+          "Animations": [],
+          "Entries": [],
+          "ImageId": "",
+          "ImageStretch": "Uniform",
+          "PreviewValue": 0,
+          "UnmappedText": "\u2014",
+          "Events": [],
+          "Id": "b00068819f0d4702ab92abbe836873af",
+          "Name": "Tytu\u0142 historii",
+          "Comment": "",
+          "Kind": "Text",
+          "X": 24,
+          "Y": 16,
+          "Width": 1232,
+          "Height": 42,
+          "Text": "PRZEGL\u0104DARKA HISTORII ZMIENNYCH",
+          "TagId": "",
+          "VisibilityTagId": "",
+          "Background": "#1B2C3F",
+          "Foreground": "#243D53",
+          "Accent": "#30C7B5",
+          "FontSize": 24,
+          "Minimum": 0,
+          "Maximum": 100,
+          "BorderThickness": 0,
+          "Unit": "",
+          "Decimals": 1,
+          "CanWrite": false,
+          "MaxTextLength": 256,
+          "ButtonAction": "Toggle",
+          "WriteValue": 1,
+          "TargetScreenId": "",
+          "Rotation": 0,
+          "IsVisible": true,
+          "LayerId": "base",
+          "GroupId": "",
+          "ZIndex": 0,
+          "IsLocked": false,
+          "FontFamily": "Segoe UI",
+          "FontBold": false,
+          "FontItalic": false,
+          "TextAlignment": "Left",
+          "BackgroundOpacity": 0,
+          "BorderColor": "#58758F",
+          "OffColor": "#34424D",
+          "BadColor": "#BF8843",
+          "FillColor2": "#102030",
+          "FillStyle": "Solid",
+          "GradientAngle": 90,
+          "CornerRadius": 0,
+          "DashStyle": "Solid",
+          "LineCap": "Flat",
+          "LineDirection": "Horizontal",
+          "StartArrow": false,
+          "EndArrow": false,
+          "ArrowSize": 12,
+          "IndicatorShape": "Circle",
+          "NumericType": "Auto",
+          "NumericFormat": "Fixed",
+          "SliderDirection": "Up",
+          "SliderMode": "Fill",
+          "SliderInteractive": false,
+          "ShowThumb": false,
+          "SliderStep": 1,
+          "ThumbSize": 12,
+          "ThumbColor": "#E8F1FA"
+        },
+        {
+          "PropertyBindings": [],
+          "StyleId": "",
+          "EquipmentInstanceId": "",
+          "StyleOverrides": [],
+          "Symbol": null,
+          "Line": null,
+          "Vector": {
+            "Nodes": [],
+            "Closed": false,
+            "FillEnabled": true,
+            "Join": "Round",
+            "EvenOddFill": true
+          },
+          "Arc": {
+            "CenterX": 0.5,
+            "CenterY": 0.5,
+            "RadiusX": 0.5,
+            "RadiusY": 0.5,
+            "StartAngle": 0,
+            "SweepAngle": 90,
+            "ThroughFraction": 0.5
+          },
+          "Path": {
+            "Width": 200,
+            "Height": 100,
+            "Parts": [],
+            "Closed": true
+          },
+          "FlipX": false,
+          "FlipY": false,
+          "Trend": {
+            "Pens": [],
+            "LeftAxis": {
+              "Title": "",
+              "AutoScale": true,
+              "Minimum": 0,
+              "Maximum": 100
+            },
+            "RightAxis": {
+              "Title": "",
+              "AutoScale": true,
+              "Minimum": 0,
+              "Maximum": 100
+            },
+            "WindowSeconds": 60,
+            "GapSeconds": 10,
+            "RefreshMilliseconds": 250,
+            "ShowGrid": true,
+            "ShowLegend": true,
+            "ShowToolbar": true,
+            "ShowCursor": true,
+            "GridColor": "#334F6378",
+            "CursorColor": "#E9A535",
+            "TimeFormat": "HH:mm:ss"
+          },
+          "AlarmList": {
+            "ShowActiveUnacknowledged": true,
+            "ShowActiveAcknowledged": true,
+            "ShowReturnedUnacknowledged": true,
+            "MaximumPriority": "Information",
+            "Search": "",
+            "ShowHeader": true,
+            "ShowCounts": true,
+            "ShowToolbar": true,
+            "AllowAcknowledgement": true,
+            "ShowComment": false,
+            "PageSize": 20,
+            "RefreshMilliseconds": 1000,
+            "RowHeight": 34,
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss",
+            "EmptyText": "Brak alarm\u00F3w",
+            "ActiveUnacknowledgedColor": "#FDE6E7",
+            "ActiveAcknowledgedColor": "#E5F2E9",
+            "ReturnedColor": "#FFF0CC",
+            "UnknownColor": "#E4E8EE",
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Priority",
+                "Title": "Priorytet",
+                "Width": 115,
+                "Visible": true
+              },
+              {
+                "Kind": "State",
+                "Title": "Stan",
+                "Width": 225,
+                "Visible": true
+              },
+              {
+                "Kind": "Name",
+                "Title": "Alarm",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Message",
+                "Title": "Komunikat",
+                "Width": 260,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Tag",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Activated",
+                "Title": "Wyst\u0105pienie",
+                "Width": 160,
+                "Visible": true
+              },
+              {
+                "Kind": "Returned",
+                "Title": "Powr\u00F3t",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Acknowledged",
+                "Title": "Potwierdzenie",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Quality",
+                "Title": "Dane",
+                "Width": 90,
+                "Visible": true
+              }
+            ]
+          },
+          "Access": {
+            "RequireLogin": false,
+            "DenyAll": false,
+            "RoleIds": []
+          },
+          "ViewAccess": {
+            "RequireLogin": false,
+            "DenyAll": false,
+            "RoleIds": []
+          },
+          "HistoryBrowser": {
+            "RestrictTags": true,
+            "TagIds": [
+              "temperature",
+              "pressure",
+              "setpoint"
+            ],
+            "AllowTagSelection": true,
+            "AllowTimeSelection": true,
+            "AllowQualitySelection": true,
+            "AllowExport": true,
+            "ShowHeader": true,
+            "ShowStatus": true,
+            "UseUtc": false,
+            "NewestFirst": true,
+            "WindowMinutes": 60,
+            "AutoRefreshSeconds": 0,
+            "PageSize": 50,
+            "RowHeight": 30,
+            "Quality": "All",
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss.fff",
+            "EmptyText": "Brak pr\u00F3bek w wybranym zakresie",
+            "BadColor": "#FDE6E7",
+            "UncertainColor": "#FFF0CC",
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Recorded",
+                "Title": "Czas zapisu",
+                "Width": 210,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Zmienna",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Value",
+                "Title": "Warto\u015B\u0107",
+                "Width": 200,
+                "Visible": true
+              },
+              {
+                "Kind": "Unit",
+                "Title": "Jednostka",
+                "Width": 85,
+                "Visible": true
+              },
+              {
+                "Kind": "Quality",
+                "Title": "Jako\u015B\u0107",
+                "Width": 170,
+                "Visible": true
+              },
+              {
+                "Kind": "DataType",
+                "Title": "Typ",
+                "Width": 90,
+                "Visible": true
+              },
+              {
+                "Kind": "Source",
+                "Title": "\u0179r\u00F3d\u0142o",
+                "Width": 180,
+                "Visible": false
+              },
+              {
+                "Kind": "SourceTime",
+                "Title": "Czas \u017Ar\u00F3d\u0142a",
+                "Width": 210,
+                "Visible": false
+              },
+              {
+                "Kind": "Received",
+                "Title": "Czas odbioru",
+                "Width": 210,
+                "Visible": false
+              },
+              {
+                "Kind": "SampleId",
+                "Title": "Id pr\u00F3bki",
+                "Width": 290,
+                "Visible": false
+              }
+            ]
+          },
+          "AuditLog": {
+            "PageSize": 50,
+            "WindowHours": 24,
+            "RefreshSeconds": 5,
+            "ShowHeader": true,
+            "ShowFilters": true,
+            "AllowExport": true,
+            "UseUtc": false,
+            "RowHeight": 32,
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss",
+            "Search": "",
+            "Operation": null,
+            "Outcome": null,
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "FailedColor": "#FDE6E7",
+            "UnknownColor": "#FFF0CC",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Time",
+                "Title": "Czas",
+                "Width": 165,
+                "Visible": true
+              },
+              {
+                "Kind": "Operator",
+                "Title": "Operator",
+                "Width": 135,
+                "Visible": true
+              },
+              {
+                "Kind": "Operation",
+                "Title": "Operacja",
+                "Width": 155,
+                "Visible": true
+              },
+              {
+                "Kind": "Target",
+                "Title": "Cel",
+                "Width": 150,
+                "Visible": true
+              },
+              {
+                "Kind": "Previous",
+                "Title": "Przed \u017C\u0105daniem",
+                "Width": 115,
+                "Visible": true
+              },
+              {
+                "Kind": "Requested",
+                "Title": "\u017B\u0105danie",
+                "Width": 110,
+                "Visible": true
+              },
+              {
+                "Kind": "Outcome",
+                "Title": "Wynik",
+                "Width": 145,
+                "Visible": true
+              },
+              {
+                "Kind": "Detail",
+                "Title": "Szczeg\u00F3\u0142y",
+                "Width": 300,
+                "Visible": false
+              },
+              {
+                "Kind": "Completed",
+                "Title": "Czas wyniku",
+                "Width": 165,
+                "Visible": false
+              },
+              {
+                "Kind": "Session",
+                "Title": "Sesja",
+                "Width": 280,
+                "Visible": false
+              }
+            ]
+          },
+          "RecipeBrowser": {
+            "DefinitionId": "",
+            "ShowDefinitionPicker": true,
+            "AllowEdit": true,
+            "AllowReadPlc": true,
+            "AllowApply": true,
+            "ShowHeader": true,
+            "PageSize": 50,
+            "RowHeight": 34,
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Name",
+                "Title": "Nastawa",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Tag",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Type",
+                "Title": "Typ",
+                "Width": 95,
+                "Visible": true
+              },
+              {
+                "Kind": "Unit",
+                "Title": "Jednostka",
+                "Width": 75,
+                "Visible": true
+              },
+              {
+                "Kind": "Minimum",
+                "Title": "Minimum",
+                "Width": 100,
+                "Visible": true
+              },
+              {
+                "Kind": "Maximum",
+                "Title": "Maksimum",
+                "Width": 100,
+                "Visible": true
+              },
+              {
+                "Kind": "Value",
+                "Title": "Warto\u015B\u0107 receptury",
+                "Width": 190,
+                "Visible": true
+              }
+            ]
+          },
+          "Pipe": {
+            "Points": [],
+            "Diameter": 20,
+            "WallThickness": 2,
+            "BendRadius": 24,
+            "Shading": true,
+            "HighlightColor": "#60FFFFFF",
+            "StartFlange": false,
+            "EndFlange": false,
+            "FlowMode": "Tag",
+            "FlowDirection": "FromSign",
+            "AnimateFlow": true,
+            "Speed": 45,
+            "Deadband": 0,
+            "SpeedFromValue": false,
+            "MarkerSpacing": 38
+          },
+          "SliderScale": {
+            "Visible": false,
+            "Side": "Far",
+            "MajorDivisions": 5,
+            "MinorDivisions": 5,
+            "ShowLabels": true,
+            "Decimals": 0,
+            "FontSize": 11,
+            "Thickness": 1,
+            "MajorLength": 8,
+            "MinorLength": 4,
+            "Color": "#E8F1FA"
+          },
+          "Gauge": {
+            "Style": "Dial",
+            "Stretch": "Uniform",
+            "CaptionFontSize": 12,
+            "Needle": "Triangle",
+            "Reverse": false,
+            "Logarithmic": false,
+            "StartAngle": 180,
+            "SweepAngle": 180,
+            "TrackThickness": 12,
+            "NeedleWidth": 3,
+            "NeedleLength": 0.85,
+            "NeedleColor": "#E8F1FA",
+            "ShowProgress": true,
+            "ShowCaption": true,
+            "ShowValue": true,
+            "ShowUnit": true,
+            "ShowFrame": false,
+            "ShowTicks": true,
+            "ShowLabels": true,
+            "MajorDivisions": 5,
+            "MinorDivisions": 5,
+            "ScaleDecimals": 0,
+            "ScaleFontSize": 10,
+            "ScaleColor": "#A8BACA",
+            "Origin": "Minimum",
+            "OriginValue": 0,
+            "ColorFromZones": false,
+            "Zones": [],
+            "ShowTarget": false,
+            "TargetTagId": "",
+            "TargetValue": 50,
+            "TargetTolerance": 0,
+            "TargetColor": "#FFCF63",
+            "PreviewValue": 55,
+            "ShowRangeWarning": true
+          },
+          "States": [],
+          "Animations": [],
+          "Entries": [],
+          "ImageId": "",
+          "ImageStretch": "Uniform",
+          "PreviewValue": 0,
+          "UnmappedText": "\u2014",
+          "Events": [],
+          "Id": "986181ab98ec412eab6c6bdf99277846",
+          "Name": "Historia procesu",
+          "Comment": "",
+          "Kind": "HistoryBrowser",
+          "X": 24,
+          "Y": 72,
+          "Width": 1232,
+          "Height": 566,
+          "Text": "Obiekt",
+          "TagId": "",
+          "VisibilityTagId": "",
+          "Background": "#FFFFFF",
+          "Foreground": "#203D52",
+          "Accent": "#30C7B5",
+          "FontSize": 13,
+          "Minimum": 0,
+          "Maximum": 100,
+          "BorderThickness": 1,
+          "Unit": "",
+          "Decimals": 1,
+          "CanWrite": false,
+          "MaxTextLength": 256,
+          "ButtonAction": "Toggle",
+          "WriteValue": 1,
+          "TargetScreenId": "",
+          "Rotation": 0,
+          "IsVisible": true,
+          "LayerId": "base",
+          "GroupId": "",
+          "ZIndex": 0,
+          "IsLocked": false,
+          "FontFamily": "Segoe UI",
+          "FontBold": false,
+          "FontItalic": false,
+          "TextAlignment": "Left",
+          "BackgroundOpacity": 1,
+          "BorderColor": "#CBD6DF",
+          "OffColor": "#34424D",
+          "BadColor": "#BF8843",
+          "FillColor2": "#102030",
+          "FillStyle": "Solid",
+          "GradientAngle": 90,
+          "CornerRadius": 0,
+          "DashStyle": "Solid",
+          "LineCap": "Flat",
+          "LineDirection": "Horizontal",
+          "StartArrow": false,
+          "EndArrow": false,
+          "ArrowSize": 12,
+          "IndicatorShape": "Circle",
+          "NumericType": "Auto",
+          "NumericFormat": "Fixed",
+          "SliderDirection": "Up",
+          "SliderMode": "Fill",
+          "SliderInteractive": false,
+          "ShowThumb": false,
+          "SliderStep": 1,
+          "ThumbSize": 12,
+          "ThumbColor": "#E8F1FA"
+        },
+        {
+          "PropertyBindings": [],
+          "StyleId": "",
+          "EquipmentInstanceId": "",
+          "StyleOverrides": [],
+          "Symbol": null,
+          "Line": null,
+          "Vector": {
+            "Nodes": [],
+            "Closed": false,
+            "FillEnabled": true,
+            "Join": "Round",
+            "EvenOddFill": true
+          },
+          "Arc": {
+            "CenterX": 0.5,
+            "CenterY": 0.5,
+            "RadiusX": 0.5,
+            "RadiusY": 0.5,
+            "StartAngle": 0,
+            "SweepAngle": 90,
+            "ThroughFraction": 0.5
+          },
+          "Path": {
+            "Width": 200,
+            "Height": 100,
+            "Parts": [],
+            "Closed": true
+          },
+          "FlipX": false,
+          "FlipY": false,
+          "Trend": {
+            "Pens": [],
+            "LeftAxis": {
+              "Title": "",
+              "AutoScale": true,
+              "Minimum": 0,
+              "Maximum": 100
+            },
+            "RightAxis": {
+              "Title": "",
+              "AutoScale": true,
+              "Minimum": 0,
+              "Maximum": 100
+            },
+            "WindowSeconds": 60,
+            "GapSeconds": 10,
+            "RefreshMilliseconds": 250,
+            "ShowGrid": true,
+            "ShowLegend": true,
+            "ShowToolbar": true,
+            "ShowCursor": true,
+            "GridColor": "#334F6378",
+            "CursorColor": "#E9A535",
+            "TimeFormat": "HH:mm:ss"
+          },
+          "AlarmList": {
+            "ShowActiveUnacknowledged": true,
+            "ShowActiveAcknowledged": true,
+            "ShowReturnedUnacknowledged": true,
+            "MaximumPriority": "Information",
+            "Search": "",
+            "ShowHeader": true,
+            "ShowCounts": true,
+            "ShowToolbar": true,
+            "AllowAcknowledgement": true,
+            "ShowComment": false,
+            "PageSize": 20,
+            "RefreshMilliseconds": 1000,
+            "RowHeight": 34,
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss",
+            "EmptyText": "Brak alarm\u00F3w",
+            "ActiveUnacknowledgedColor": "#FDE6E7",
+            "ActiveAcknowledgedColor": "#E5F2E9",
+            "ReturnedColor": "#FFF0CC",
+            "UnknownColor": "#E4E8EE",
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Priority",
+                "Title": "Priorytet",
+                "Width": 115,
+                "Visible": true
+              },
+              {
+                "Kind": "State",
+                "Title": "Stan",
+                "Width": 225,
+                "Visible": true
+              },
+              {
+                "Kind": "Name",
+                "Title": "Alarm",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Message",
+                "Title": "Komunikat",
+                "Width": 260,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Tag",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Activated",
+                "Title": "Wyst\u0105pienie",
+                "Width": 160,
+                "Visible": true
+              },
+              {
+                "Kind": "Returned",
+                "Title": "Powr\u00F3t",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Acknowledged",
+                "Title": "Potwierdzenie",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Quality",
+                "Title": "Dane",
+                "Width": 90,
+                "Visible": true
+              }
+            ]
+          },
+          "Access": {
+            "RequireLogin": false,
+            "DenyAll": false,
+            "RoleIds": []
+          },
+          "ViewAccess": {
+            "RequireLogin": false,
+            "DenyAll": false,
+            "RoleIds": []
+          },
+          "HistoryBrowser": {
+            "RestrictTags": false,
+            "TagIds": [],
+            "AllowTagSelection": true,
+            "AllowTimeSelection": true,
+            "AllowQualitySelection": true,
+            "AllowExport": true,
+            "ShowHeader": true,
+            "ShowStatus": true,
+            "UseUtc": false,
+            "NewestFirst": true,
+            "WindowMinutes": 60,
+            "AutoRefreshSeconds": 0,
+            "PageSize": 100,
+            "RowHeight": 30,
+            "Quality": "All",
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss.fff",
+            "EmptyText": "Brak pr\u00F3bek w wybranym zakresie",
+            "BadColor": "#FDE6E7",
+            "UncertainColor": "#FFF0CC",
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Recorded",
+                "Title": "Czas zapisu",
+                "Width": 210,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Zmienna",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Value",
+                "Title": "Warto\u015B\u0107",
+                "Width": 200,
+                "Visible": true
+              },
+              {
+                "Kind": "Unit",
+                "Title": "Jednostka",
+                "Width": 85,
+                "Visible": true
+              },
+              {
+                "Kind": "Quality",
+                "Title": "Jako\u015B\u0107",
+                "Width": 170,
+                "Visible": true
+              },
+              {
+                "Kind": "DataType",
+                "Title": "Typ",
+                "Width": 90,
+                "Visible": true
+              },
+              {
+                "Kind": "Source",
+                "Title": "\u0179r\u00F3d\u0142o",
+                "Width": 180,
+                "Visible": false
+              },
+              {
+                "Kind": "SourceTime",
+                "Title": "Czas \u017Ar\u00F3d\u0142a",
+                "Width": 210,
+                "Visible": false
+              },
+              {
+                "Kind": "Received",
+                "Title": "Czas odbioru",
+                "Width": 210,
+                "Visible": false
+              },
+              {
+                "Kind": "SampleId",
+                "Title": "Id pr\u00F3bki",
+                "Width": 290,
+                "Visible": false
+              }
+            ]
+          },
+          "AuditLog": {
+            "PageSize": 50,
+            "WindowHours": 24,
+            "RefreshSeconds": 5,
+            "ShowHeader": true,
+            "ShowFilters": true,
+            "AllowExport": true,
+            "UseUtc": false,
+            "RowHeight": 32,
+            "TimeFormat": "yyyy-MM-dd HH:mm:ss",
+            "Search": "",
+            "Operation": null,
+            "Outcome": null,
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "FailedColor": "#FDE6E7",
+            "UnknownColor": "#FFF0CC",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Time",
+                "Title": "Czas",
+                "Width": 165,
+                "Visible": true
+              },
+              {
+                "Kind": "Operator",
+                "Title": "Operator",
+                "Width": 135,
+                "Visible": true
+              },
+              {
+                "Kind": "Operation",
+                "Title": "Operacja",
+                "Width": 155,
+                "Visible": true
+              },
+              {
+                "Kind": "Target",
+                "Title": "Cel",
+                "Width": 150,
+                "Visible": true
+              },
+              {
+                "Kind": "Previous",
+                "Title": "Przed \u017C\u0105daniem",
+                "Width": 115,
+                "Visible": true
+              },
+              {
+                "Kind": "Requested",
+                "Title": "\u017B\u0105danie",
+                "Width": 110,
+                "Visible": true
+              },
+              {
+                "Kind": "Outcome",
+                "Title": "Wynik",
+                "Width": 145,
+                "Visible": true
+              },
+              {
+                "Kind": "Detail",
+                "Title": "Szczeg\u00F3\u0142y",
+                "Width": 300,
+                "Visible": false
+              },
+              {
+                "Kind": "Completed",
+                "Title": "Czas wyniku",
+                "Width": 165,
+                "Visible": false
+              },
+              {
+                "Kind": "Session",
+                "Title": "Sesja",
+                "Width": 280,
+                "Visible": false
+              }
+            ]
+          },
+          "RecipeBrowser": {
+            "DefinitionId": "",
+            "ShowDefinitionPicker": true,
+            "AllowEdit": true,
+            "AllowReadPlc": true,
+            "AllowApply": true,
+            "ShowHeader": true,
+            "PageSize": 50,
+            "RowHeight": 34,
+            "HeaderColor": "#E6EDF4",
+            "HeaderForeground": "#244056",
+            "SelectionColor": "#BBDBEE",
+            "SelectionForeground": "#18364B",
+            "GridColor": "#CBD6DF",
+            "Columns": [
+              {
+                "Kind": "Name",
+                "Title": "Nastawa",
+                "Width": 180,
+                "Visible": true
+              },
+              {
+                "Kind": "Tag",
+                "Title": "Tag",
+                "Width": 160,
+                "Visible": false
+              },
+              {
+                "Kind": "Type",
+                "Title": "Typ",
+                "Width": 95,
+                "Visible": true
+              },
+              {
+                "Kind": "Unit",
+                "Title": "Jednostka",
+                "Width": 75,
+                "Visible": true
+              },
+              {
+                "Kind": "Minimum",
+                "Title": "Minimum",
+                "Width": 100,
+                "Visible": true
+              },
+              {
+                "Kind": "Maximum",
+                "Title": "Maksimum",
+                "Width": 100,
+                "Visible": true
+              },
+              {
+                "Kind": "Value",
+                "Title": "Warto\u015B\u0107 receptury",
+                "Width": 190,
+                "Visible": true
+              }
+            ]
+          },
+          "Pipe": {
+            "Points": [],
+            "Diameter": 20,
+            "WallThickness": 2,
+            "BendRadius": 24,
+            "Shading": true,
+            "HighlightColor": "#60FFFFFF",
+            "StartFlange": false,
+            "EndFlange": false,
+            "FlowMode": "Tag",
+            "FlowDirection": "FromSign",
+            "AnimateFlow": true,
+            "Speed": 45,
+            "Deadband": 0,
+            "SpeedFromValue": false,
+            "MarkerSpacing": 38
+          },
+          "SliderScale": {
+            "Visible": false,
+            "Side": "Far",
+            "MajorDivisions": 5,
+            "MinorDivisions": 5,
+            "ShowLabels": true,
+            "Decimals": 0,
+            "FontSize": 11,
+            "Thickness": 1,
+            "MajorLength": 8,
+            "MinorLength": 4,
+            "Color": "#E8F1FA"
+          },
+          "Gauge": {
+            "Style": "Dial",
+            "Stretch": "Uniform",
+            "CaptionFontSize": 12,
+            "Needle": "Triangle",
+            "Reverse": false,
+            "Logarithmic": false,
+            "StartAngle": 180,
+            "SweepAngle": 180,
+            "TrackThickness": 12,
+            "NeedleWidth": 3,
+            "NeedleLength": 0.85,
+            "NeedleColor": "#E8F1FA",
+            "ShowProgress": true,
+            "ShowCaption": true,
+            "ShowValue": true,
+            "ShowUnit": true,
+            "ShowFrame": false,
+            "ShowTicks": true,
+            "ShowLabels": true,
+            "MajorDivisions": 5,
+            "MinorDivisions": 5,
+            "ScaleDecimals": 0,
+            "ScaleFontSize": 10,
+            "ScaleColor": "#A8BACA",
+            "Origin": "Minimum",
+            "OriginValue": 0,
+            "ColorFromZones": false,
+            "Zones": [],
+            "ShowTarget": false,
+            "TargetTagId": "",
+            "TargetValue": 50,
+            "TargetTolerance": 0,
+            "TargetColor": "#FFCF63",
+            "PreviewValue": 55,
+            "ShowRangeWarning": true
+          },
+          "States": [],
+          "Animations": [],
+          "Entries": [],
+          "ImageId": "",
+          "ImageStretch": "Uniform",
+          "PreviewValue": 0,
+          "UnmappedText": "\u2014",
+          "Events": [],
+          "Id": "45fa412310864401b0638ca45f717796",
+          "Name": "Opis historii",
+          "Comment": "",
+          "Kind": "Text",
+          "X": 24,
+          "Y": 650,
+          "Width": 1232,
+          "Height": 54,
+          "Text": "Wybierz zmienn\u0105, jako\u015B\u0107 i zakres czasu. CSV eksportuje pe\u0142ny zakres z bazy.\nArchiwizacja dzia\u0142a niezale\u017Cnie od otwartego ekranu; F9 pokazuje stan dostarczania pr\u00F3bek.",
+          "TagId": "",
+          "VisibilityTagId": "",
+          "Background": "#1B2C3F",
+          "Foreground": "#42627E",
+          "Accent": "#30C7B5",
+          "FontSize": 16,
+          "Minimum": 0,
+          "Maximum": 100,
+          "BorderThickness": 0,
+          "Unit": "",
+          "Decimals": 1,
+          "CanWrite": false,
+          "MaxTextLength": 256,
+          "ButtonAction": "Toggle",
+          "WriteValue": 1,
+          "TargetScreenId": "",
+          "Rotation": 0,
+          "IsVisible": true,
+          "LayerId": "base",
+          "GroupId": "",
+          "ZIndex": 0,
+          "IsLocked": false,
+          "FontFamily": "Segoe UI",
+          "FontBold": false,
+          "FontItalic": false,
+          "TextAlignment": "Left",
+          "BackgroundOpacity": 0,
+          "BorderColor": "#58758F",
+          "OffColor": "#34424D",
+          "BadColor": "#BF8843",
+          "FillColor2": "#102030",
+          "FillStyle": "Solid",
+          "GradientAngle": 90,
+          "CornerRadius": 0,
+          "DashStyle": "Solid",
+          "LineCap": "Flat",
+          "LineDirection": "Horizontal",
+          "StartArrow": false,
+          "EndArrow": false,
+          "ArrowSize": 12,
+          "IndicatorShape": "Circle",
+          "NumericType": "Auto",
+          "NumericFormat": "Fixed",
+          "SliderDirection": "Up",
+          "SliderMode": "Fill",
+          "SliderInteractive": false,
+          "ShowThumb": false,
+          "SliderStep": 1,
+          "ThumbSize": 12,
+          "ThumbColor": "#E8F1FA"
+        }
+      ],
+      "Layers": [
+        {
+          "Id": "base",
+          "Name": "Warstwa 1",
+          "IsVisible": true,
+          "IsLocked": false
+        }
+      ],
+      "Grid": {
+        "GuidesVisible": true,
+        "SnapToGuides": true,
+        "SnapToObjects": true,
+        "Guides": [],
+        "Visible": true,
+        "SnapEnabled": true,
+        "Spacing": 8
+      }
+    }
+  ],
+  "ScreenTemplates": [],
+  "Tags": [
+    {
+      "ArrayLength": 0,
+      "Internal": false,
+      "Retain": false,
+      "WriteAccess": {
+        "RequireLogin": false,
+        "DenyAll": false,
+        "RoleIds": []
+      },
+      "History": {
+        "Enabled": true,
+        "Sampling": "Cyclic",
+        "IntervalMilliseconds": 1000,
+        "Deadband": 0
+      },
+      "ConnectionId": "default",
+      "Group": "",
+      "Description": "",
+      "InitialValue": "0",
+      "ByteOrder": "ABCD",
+      "Id": "temperature",
+      "Name": "Temperatura",
+      "NodeId": "",
+      "DataType": "Double",
+      "Unit": "\u00B0C",
+      "Writable": false,
+      "SimMin": 30,
+      "SimMax": 90,
+      "SimValue": 60,
+      "Simulate": true
+    },
+    {
+      "ArrayLength": 0,
+      "Internal": false,
+      "Retain": false,
+      "WriteAccess": {
+        "RequireLogin": false,
+        "DenyAll": false,
+        "RoleIds": []
+      },
+      "History": {
+        "Enabled": true,
+        "Sampling": "Cyclic",
+        "IntervalMilliseconds": 1000,
+        "Deadband": 0
+      },
+      "ConnectionId": "default",
+      "Group": "",
+      "Description": "",
+      "InitialValue": "0",
+      "ByteOrder": "ABCD",
+      "Id": "pressure",
+      "Name": "Ci\u015Bnienie",
+      "NodeId": "",
+      "DataType": "Double",
+      "Unit": "bar",
+      "Writable": false,
+      "SimMin": 2,
+      "SimMax": 8,
+      "SimValue": 5,
+      "Simulate": true
+    },
+    {
+      "ArrayLength": 0,
+      "Internal": false,
+      "Retain": false,
+      "WriteAccess": {
+        "RequireLogin": false,
+        "DenyAll": false,
+        "RoleIds": []
+      },
+      "History": {
+        "Enabled": true,
+        "Sampling": "OnChange",
+        "IntervalMilliseconds": 1000,
+        "Deadband": 0.1
+      },
+      "ConnectionId": "default",
+      "Group": "",
+      "Description": "",
+      "InitialValue": "0",
+      "ByteOrder": "ABCD",
+      "Id": "setpoint",
+      "Name": "Zadana temperatury",
+      "NodeId": "",
+      "DataType": "Double",
+      "Unit": "\u00B0C",
+      "Writable": true,
+      "SimMin": 0,
+      "SimMax": 100,
+      "SimValue": 65,
+      "Simulate": false
+    }
+  ],
+  "Images": [],
+  "Scripts": [],
+  "Symbols": [],
+  "Connections": [
+    {
+      "Id": "default",
+      "Name": "Po\u0142\u0105czenie 1",
+      "Enabled": true,
+      "Settings": {
+        "Protocol": "Simulation",
+        "Modbus": {
+          "Host": "127.0.0.1",
+          "Port": 502,
+          "UnitId": 1,
+          "TimeoutMilliseconds": 3000
+        },
+        "S7Plus": {
+          "Host": "192.168.0.1",
+          "Username": "",
+          "PasswordEnvironmentVariable": "",
+          "TimeoutMilliseconds": 5000
+        },
+        "EndpointUrl": "opc.tcp://localhost:4840",
+        "UseSecurity": true,
+        "PublishingInterval": 500,
+        "AllowWrites": false,
+        "Recovery": {
+          "AutomaticReconnect": true,
+          "InitialRetryMilliseconds": 1000,
+          "MaximumRetryMilliseconds": 30000,
+          "StableConnectionMilliseconds": 10000,
+          "StaleAfterMilliseconds": 5000
+        }
+      }
+    }
+  ]
+}

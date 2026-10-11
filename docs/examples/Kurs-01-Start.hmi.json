@@ -1,0 +1,144 @@
+{
+  "EquipmentTypes": [],
+  "Styles": [],
+  "EquipmentInstances": [],
+  "Security": {
+    "Enabled": false,
+    "AuditEnabled": false,
+    "IdleMinutes": 15,
+    "FailedAttempts": 5,
+    "LockoutSeconds": 300,
+    "Roles": [
+      {
+        "Id": "operator",
+        "Name": "Operator",
+        "Administrator": false,
+        "Permissions": [
+          "WriteTags",
+          "AcknowledgeAlarms",
+          "ViewRecipes",
+          "ApplyRecipes"
+        ]
+      },
+      {
+        "Id": "maintenance",
+        "Name": "Utrzymanie ruchu",
+        "Administrator": false,
+        "Permissions": [
+          "WriteTags",
+          "AcknowledgeAlarms",
+          "RunScripts",
+          "ViewAudit",
+          "ExportAudit",
+          "ViewRecipes",
+          "EditRecipes",
+          "ApplyRecipes"
+        ]
+      },
+      {
+        "Id": "administrator",
+        "Name": "Administrator",
+        "Administrator": true,
+        "Permissions": []
+      }
+    ],
+    "Accounts": []
+  },
+  "Recipes": [],
+  "Historian": {
+    "Enabled": false,
+    "Host": "localhost",
+    "Port": 5432,
+    "Database": "hmi_history",
+    "Username": "hmi_client",
+    "PasswordEnvironmentVariable": "HMI_HISTORY_PASSWORD",
+    "RequireTls": true,
+    "RetentionDays": 90,
+    "CompressAfterDays": 7,
+    "BufferMegabytes": 512
+  },
+  "Id": "e2aa0148708a4b53a4a2f2ef93ce7361",
+  "Alarms": [],
+  "KeyboardMode": "Touch",
+  "Version": 4,
+  "Name": "Kurs 01 \u2014 m\u00F3j pierwszy ekran",
+  "Screens": [
+    {
+      "UseTemplate": false,
+      "TemplateId": "",
+      "TemplateAboveContent": true,
+      "Access": {
+        "RequireLogin": false,
+        "DenyAll": false,
+        "RoleIds": []
+      },
+      "Popup": {
+        "Enabled": false,
+        "Modal": false,
+        "Resizable": false,
+        "TemplateElementId": ""
+      },
+      "Id": "course-screen",
+      "Name": "Pierwszy ekran",
+      "Width": 1280,
+      "Height": 720,
+      "Background": "#EEF3F8",
+      "Elements": [],
+      "Layers": [
+        {
+          "Id": "base",
+          "Name": "Warstwa 1",
+          "IsVisible": true,
+          "IsLocked": false
+        }
+      ],
+      "Grid": {
+        "GuidesVisible": true,
+        "SnapToGuides": true,
+        "SnapToObjects": true,
+        "Guides": [],
+        "Visible": true,
+        "SnapEnabled": true,
+        "Spacing": 5
+      }
+    }
+  ],
+  "ScreenTemplates": [],
+  "Tags": [],
+  "Images": [],
+  "Scripts": [],
+  "Symbols": [],
+  "Connections": [
+    {
+      "Id": "default",
+      "Name": "Po\u0142\u0105czenie 1",
+      "Enabled": true,
+      "Settings": {
+        "Protocol": "Simulation",
+        "Modbus": {
+          "Host": "127.0.0.1",
+          "Port": 502,
+          "UnitId": 1,
+          "TimeoutMilliseconds": 3000
+        },
+        "S7Plus": {
+          "Host": "192.168.0.1",
+          "Username": "",
+          "PasswordEnvironmentVariable": "",
+          "TimeoutMilliseconds": 5000
+        },
+        "EndpointUrl": "opc.tcp://localhost:4840",
+        "UseSecurity": true,
+        "PublishingInterval": 500,
+        "AllowWrites": false,
+        "Recovery": {
+          "AutomaticReconnect": true,
+          "InitialRetryMilliseconds": 1000,
+          "MaximumRetryMilliseconds": 30000,
+          "StableConnectionMilliseconds": 10000,
+          "StaleAfterMilliseconds": 5000
+        }
+      }
+    }
+  ]
+}
