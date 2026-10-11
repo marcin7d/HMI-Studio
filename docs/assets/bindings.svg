@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="365" viewBox="0 0 1100 365" role="img" aria-labelledby="title desc">
+<title id="title">Wiązanie dostępności</title><desc id="desc">Tagi Auto i Awaria są przypisane do aliasów wyrażenia Auto i nie Awaria. Tylko prawdziwy wynik i aktualne dane zezwalają na obsługę pola.</desc>
+<rect width="1100" height="365" rx="20" fill="#f0f5f8"/>
+<g font-family="Segoe UI,Arial,sans-serif" fill="#182c43"><text x="35" y="47" font-size="23" font-weight="700">Od dwóch zmiennych do jednej właściwości</text>
+<g fill="white" stroke="#c6d6e0"><rect x="35" y="103" width="210" height="74" rx="12"/><rect x="35" y="202" width="210" height="74" rx="12"/><rect x="360" y="133" width="327" height="108" rx="12"/><rect x="800" y="133" width="265" height="108" rx="12"/></g>
+<text x="57" y="134" font-size="19" font-weight="600">Tryb automatyczny</text><text x="57" y="158" font-size="15" fill="#52677d">alias: Auto</text><text x="57" y="233" font-size="19" font-weight="600">Awaria pompy</text><text x="57" y="257" font-size="15" fill="#52677d">alias: Awaria</text>
+<text x="384" y="170" font-size="15" fill="#52677d">WYRAŻENIE</text><text x="384" y="207" font-size="24" font-family="Consolas,monospace">Auto &amp;&amp; !Awaria</text>
+<text x="823" y="170" font-size="15" fill="#52677d">WŁAŚCIWOŚĆ POLA</text><text x="823" y="205" font-size="21" font-weight="600">Dostępność sterowania</text>
+<g stroke="#128577" stroke-width="2" fill="none"><path d="M256 140H300V186H348M256 239H300V186M694 186H787M335 178L348 186L335 194M774 178L787 186L774 194"/></g>
+<rect x="360" y="275" width="705" height="53" rx="10" fill="#dfeee9"/><text x="382" y="307" font-size="16" fill="#175f54">Brak jakości lub aktualności źródła → sterowanie zablokowane.</text></g></svg>

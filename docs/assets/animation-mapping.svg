@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+<title id="title">Zakres wejściowy, wynik animacji i kotwica</title><desc id="desc">Wejście zero do stu mapuje się na przesunięcie zero do dwustu pikseli. Wartość pięćdziesiąt daje sto pikseli. Kotwica dolna i środkowa zmieniają kierunek rozrostu wysokości.</desc>
+<rect width="1200" height="720" rx="20" fill="#f3f7fa"/>
+<g font-family="Segoe UI,Arial,sans-serif" fill="#18364b">
+<text x="48" y="58" font-size="15" fill="#087e6d" letter-spacing="2">ANIMACJA GEOMETRII</text><text x="48" y="102" font-size="31" font-weight="700">Wartość tagu → wynik względem geometrii bazowej</text>
+<rect x="48" y="135" width="1104" height="238" rx="12" fill="#fff" stroke="#cfdee7"/>
+<text x="72" y="178" font-size="22" font-weight="600">Wejście: 0–100</text><text x="72" y="211" font-size="19" fill="#50697b">Tag = 50</text><text x="646" y="178" font-size="22" font-weight="600">Wyjście X: 0–200 px</text><text x="646" y="211" font-size="19" fill="#50697b">Przesunięcie = 100 px</text>
+<g stroke="#aac1cf" stroke-width="5"><path d="M92 262H498 M666 262H1072"/></g><g fill="#087e6d"><circle cx="295" cy="262" r="11"/><circle cx="869" cy="262" r="11"/></g>
+<g font-size="20"><text x="86" y="305">0</text><text x="282" y="305">50</text><text x="478" y="305">100</text><text x="660" y="305">0</text><text x="851" y="305">100</text><text x="1052" y="305">200</text><text x="544" y="269" font-size="34" fill="#087e6d">→</text></g>
+<text x="72" y="345" font-size="18" fill="#50697b">Wartości poniżej i powyżej wejścia są ograniczane do krańców wyjścia.</text>
+<text x="48" y="417" font-size="25" font-weight="700">Ta sama zmiana wysokości, inna kotwica</text>
+<g fill="#fff" stroke="#cfdee7"><rect x="48" y="444" width="532" height="224" rx="12"/><rect x="620" y="444" width="532" height="224" rx="12"/></g>
+<g fill="#d9eee7" stroke="#087e6d" stroke-width="2"><rect x="98" y="479" width="76" height="148"/><rect x="670" y="479" width="76" height="148"/></g>
+<g fill="none" stroke="#50697b" stroke-width="2" stroke-dasharray="5 4"><rect x="90" y="553" width="92" height="74"/><rect x="662" y="516" width="92" height="74"/></g>
+<g fill="#18364b"><circle cx="136" cy="627" r="6"/><circle cx="708" cy="553" r="6"/></g>
+<g font-size="21" font-weight="600"><text x="211" y="506">Y = 100%: dół</text><text x="783" y="506">Y = 50%: środek</text></g>
+<g font-size="19" fill="#50697b"><text x="211" y="545">Dół zostaje w miejscu.</text><text x="211" y="576">Wzrost ku górze.</text><text x="783" y="545">Środek zostaje w miejscu.</text><text x="783" y="576">Wzrost w obie strony.</text></g>
+<text x="48" y="703" font-size="17" fill="#50697b">Ramka przerywana: rozmiar bazowy. Zielone pole: wysokość 200%. Punkt: kotwica.</text>
+</g></svg>
