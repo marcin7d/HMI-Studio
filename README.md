@@ -4,6 +4,8 @@ Darmowy program dla Windows x64 do projektowania wizualizacji i obsługi urządz
 
 **[Pobierz instalator 0.44.0 Beta](https://github.com/marcin7d/HMI-Studio/releases/tag/v0.44.0-beta)** — plik `HmiStation-0.44.0-win-x64.exe` znajduje się w sekcji Assets wydania, razem z sumą kontrolną SHA-256.
 
+**[Przeglądaj pełną instrukcję online](https://marcin7d.github.io/HMI-Studio/)** — 75 rozdziałów z wyszukiwaniem, grafikami i przykładami do pobrania. Dostępna w przeglądarce bez instalowania programu.
+
 ## Przykładowe ekrany
 
 Zrzuty pokazują projekty demonstracyjne i dane symulowane. [Otwórz pełną galerię](screenshots/README.md).
@@ -49,7 +51,7 @@ Komunikacja: **OPC UA, Siemens S7 Plus i Modbus TCP**. Developer łączy się z 
 | Tylko Developer | Developer, pomoc offline i przykłady |
 | Wszystko | Developer, Client, Runtime i baza danych |
 
-Instalacja wymaga uprawnień administratora. Wymagane środowiska są dołączone do instalatora. Szczegółowa instrukcja jest dostępna offline w programie.
+Instalacja wymaga uprawnień administratora. Wymagane środowiska są dołączone do instalatora. Szczegółowa instrukcja jest dostępna [online](https://marcin7d.github.io/HMI-Studio/) oraz offline w programie.
 
 ## Wersja testowa
 
