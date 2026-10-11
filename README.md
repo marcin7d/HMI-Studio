@@ -4,6 +4,34 @@ Darmowy program dla Windows x64 do projektowania wizualizacji i obsługi urządz
 
 **[Pobierz instalator 0.44.0 Beta](https://github.com/marcin7d/HMI-Studio/releases/tag/v0.44.0-beta)** — plik `HmiStation-0.44.0-win-x64.exe` znajduje się w sekcji Assets wydania, razem z sumą kontrolną SHA-256.
 
+## Przykładowe ekrany
+
+Zrzuty pokazują projekty demonstracyjne i dane symulowane. [Otwórz pełną galerię](screenshots/README.md).
+
+### Stacja procesowa — podgląd projektu
+
+Zbiornik, pompa, zawór, wskaźniki ciśnienia i przepływu oraz trend poziomu.
+
+![Podgląd stacji procesowej](screenshots/stacja-procesowa.png)
+
+### Developer — animacje grup
+
+Drzewo obiektów, biblioteka geometrii i właściwości wspólnej animacji grupy.
+
+![Developer i animacje grup](screenshots/developer-animacje-grup.png)
+
+### Client — trendy procesowe
+
+Temperatura, ciśnienie, wartość zadana, statystyki i sterowanie widokiem trendu.
+
+![Trendy procesowe w Cliencie](screenshots/trendy-procesowe.png)
+
+### Panel sterowania pompą
+
+Popup z przyciskami START / STOP, nastawą wydajności i trendem.
+
+![Panel sterowania pompą](screenshots/panel-pompy.png)
+
 ## Trzy programy
 
 - **Developer** — projektowanie ekranów i symboli, parametryzowanie obiektów, animacje, zdarzenia oraz skrypty Python.
